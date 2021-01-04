@@ -10,10 +10,10 @@ describe('<Logo />', () => {
       color: '#fafafa'
     })
   })
-  /* it('should render a black label when color is passed', () => {
+  it('should render a black label when color is passed', () => {
     renderWithTheme(<Logo color="black" />)
     expect(screen.getByLabelText(/won games/i).parentElement).toHaveStyle({
       color: '#030517'
     })
-  }) */
+  })
 })
