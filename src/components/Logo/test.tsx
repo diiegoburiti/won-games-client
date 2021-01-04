@@ -25,10 +25,10 @@ describe('<Logo />', () => {
     })
   })
 
-  /*  it('should render logo large size', () => {
+  it('should render logo large size', () => {
     renderWithTheme(<Logo color="black" size="large" />)
     expect(screen.getByLabelText(/won games/i).parentElement).toHaveStyle({
       width: '20rem'
     })
-  }) */
+  })
 })
