@@ -18,14 +18,14 @@ describe('<Logo />', () => {
     })
   })
 
-  it('should render logo by default normal size', () => {
+  it('should render a normal logo when size is default', () => {
     renderWithTheme(<Logo color="black" size="normal" />)
     expect(screen.getByLabelText(/won games/i).parentElement).toHaveStyle({
       width: '11rem'
     })
   })
 
-  it('should render logo large size', () => {
+  it('should render logo bigger logo', () => {
     renderWithTheme(<Logo color="black" size="large" />)
     expect(screen.getByLabelText(/won games/i).parentElement).toHaveStyle({
       width: '20rem'
