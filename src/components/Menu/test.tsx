@@ -27,7 +27,8 @@ describe('<Menu />', () => {
     expect(fullMenuElement).toHaveStyle({ opacity: 1 })
 
     // check if onClick the button is closed
-    /* fireEvent.click(screen.getByLabelText(/close menu/i))
-    expect(fullMenuElement.getAttribute('aria-hidden')).toBe('false') */
+    fireEvent.click(screen.getByLabelText(/close menu/i))
+    expect(fullMenuElement.getAttribute('aria-hidden')).toBe('true')
+    expect(fullMenuElement).toHaveStyle({ opacity: 0 })
   })
 })
