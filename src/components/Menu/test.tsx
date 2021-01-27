@@ -12,4 +12,11 @@ describe('<Menu />', () => {
     expect(screen.getByLabelText(/search/i)).toBeInTheDocument()
     expect(screen.getByLabelText(/open shopping cart/i)).toBeInTheDocument()
   })
+
+  it('should handle the open/close mobile menu', () => {
+    renderWithTheme(<Menu />)
+    const fullMenuElement = screen.getByRole('navigation', { hidden: true })
+
+    expect(fullMenuElement.getAttribute('aria-hidden')).toBe('true')
+  })
 })
