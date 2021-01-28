@@ -37,12 +37,100 @@ export const MenuGroup = styled.div`
     }
   `}
 `
-
-type menuFullProps = {
+type MenuFullProps = {
   isOpen: boolean
 }
-export const MenuFull = styled.nav<menuFullProps>`
-  ${({ isOpen }) => css`
+
+export const MenuNav = styled.div``
+export const MenuLink = styled.a`
+  ${({ theme }) => css`
+    position: relative;
+    font-size: ${theme.font.sizes.medium};
+    margin: 0.3rem ${theme.spacings.small};
+    text-decoration: none;
+    text-align: center;
+
+    &:hover {
+      &:before {
+        transform: scaleX(1);
+      }
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background-color: ${theme.colors.primary};
+      bottom: -4px;
+      left: 0px;
+      transform: scaleX(0);
+      transition: transform 0.3s ease 0s;
+    }
+  `}
+`
+
+export const MenuFull = styled.nav<MenuFullProps>`
+  ${({ isOpen, theme }) => css`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    overflow: hidden;
+    background-color: ${theme.colors.white};
     opacity: ${isOpen ? 1 : 0};
+    pointer-events: ${isOpen ? 'all' : 'none'};
+
+    > svg {
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin: ${theme.spacings.xsmall};
+      cursor: pointer;
+      width: 2.4rem;
+      height: 2.4rem;
+    }
+
+    ${MenuNav} {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+      flex-direction: column;
+    }
+
+    ${MenuLink} {
+      color: ${theme.colors.black};
+      font-weight: ${theme.font.bold};
+      font-size: ${theme.font.sizes.xlarge};
+      margin-bottom: ${theme.spacings.small};
+    }
+  `}
+`
+
+export const RegisterBox = styled.div`
+  ${({ theme }) => css`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 ${theme.spacings.xlarge} ${theme.spacings.xlarge};
+    > span {
+      display: block;
+      margin: ${theme.spacings.xxsmall} 0;
+      font-size: ${theme.font.sizes.xsmall};
+    }
+  `}
+`
+
+export const CreateAccount = styled.a`
+  ${({ theme }) => css`
+    text-decoration: none;
+    color: ${theme.colors.primary};
+    border-bottom: 0.2rem solid ${theme.colors.primary};
   `}
 `
