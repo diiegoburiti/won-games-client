@@ -45,7 +45,7 @@ describe('<Menu />', () => {
   it('should show wishlist and account when logger in', () => {
     renderWithTheme(<Menu userName="admin123" />)
 
-    expect(screen.getByText(/my acccount/i)).toBeInTheDocument()
+    expect(screen.getByText(/my account/i)).toBeInTheDocument()
     expect(screen.getByText(/wishlist/i)).toBeInTheDocument()
 
     expect(screen.queryByText(/log in now/i)).not.toBeInTheDocument()
