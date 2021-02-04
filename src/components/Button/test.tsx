@@ -66,14 +66,4 @@ describe('<Button />', () => {
       '/link'
     )
   })
-
-  it('should render a Button by default ', () => {
-    const { debug, container } = renderWithTheme(
-      <Button as="button">Buy now</Button>
-    )
-
-    debug(container)
-
-    expect(screen.getByText(/buy now/i)).toBeInTheDocument()
-  })
 })
