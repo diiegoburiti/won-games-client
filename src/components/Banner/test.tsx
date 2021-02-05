@@ -3,30 +3,28 @@ import { renderWithTheme } from 'components/utils/tests/helpers'
 
 import Banner from '.'
 
+const props = {
+  img: 'https://source.unsplash.com/user/willianjusten/1042x580',
+  title: 'Defy death',
+  subtitle: '<p>Play the new <strong>CrashLands</strong> season',
+  buttonLabel: 'Buy now',
+  buttonLink: '/games/defy-death'
+}
+
 describe('<Banner />', () => {
   it('should render the correctly', () => {
-    const { debug, container } = renderWithTheme(
-      <Banner
-        img="https://source.unsplash.com/user/willianjusten/1042x580"
-        title="Lorem Ipsum"
-        subtitle="Generic Sub Title"
-        buttonLink=""
-        buttonLabel=""
-      />
-    )
-
-    debug(container)
+    const { container } = renderWithTheme(<Banner {...props} />)
 
     expect(
-      screen.getByRole('heading', { name: /Lorem Ipsum/i })
+      screen.getByRole('heading', { name: /Defy death/i })
     ).toBeInTheDocument()
 
     expect(
-      screen.getByRole('heading', { name: /generic sub title/i })
+      screen.getByRole('heading', { name: /Play the new CrashLands season/i })
     ).toBeInTheDocument()
 
-    expect(
-      screen.getByRole('img', { name: /Lorem Ipsum/i })
-    ).toBeInTheDocument()
+    expect(screen.getByRole('img', { name: /Defy death/i })).toBeInTheDocument()
+
+    expect(container.firstChild).toMatchSnapshot()
   })
 })
