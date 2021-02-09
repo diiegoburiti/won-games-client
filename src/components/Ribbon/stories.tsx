@@ -1,5 +1,4 @@
 import { Story, Meta } from '@storybook/react/types-6-0'
-import { relative } from 'path'
 import Ribbon, { RibbonProps } from '.'
 
 export default {
