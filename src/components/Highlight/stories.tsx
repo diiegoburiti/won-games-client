@@ -6,7 +6,7 @@ export default {
   component: Highlight,
   args: {
     title: 'Red Dead it´s back',
-    subtitle: 'Come see jhon`s adventures',
+    subTitle: 'Come see jhon`s adventures',
     buttonLabel: 'Buy now',
     buttonLink: '/rd2'
   }
