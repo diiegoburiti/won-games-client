@@ -7,7 +7,8 @@ const props = {
   title: 'heading 1',
   subTitle: 'heading 2',
   buttonLabel: 'Buy Now',
-  buttonLink: '/rd2'
+  buttonLink: '/rd2',
+  backgroundImage: '/img/red-dead-img.jpg'
 }
 
 describe('<Highlight />', () => {
@@ -25,5 +26,13 @@ describe('<Highlight />', () => {
     expect(screen.getByRole('link', { name: /buy now/i })).toBeInTheDocument()
 
     /* expect(container.firstChild).toMatchSnapshot() */
+  })
+
+  it('should render background image', () => {
+    const { container } = renderWithTheme(<Highlight {...props} />)
+
+    expect(container.firstChild).toHaveStyle({
+      backgroundImage: `url( ${props.backgroundImage})`
+    })
   })
 })
