@@ -24,3 +24,7 @@ export const WithFloatImage: Story<HighlightProps> = (args) => (
     <Highlight {...args} />
   </div>
 )
+
+WithFloatImage.args = {
+  floatImage: '/img/red-dead-float.png'
+}
