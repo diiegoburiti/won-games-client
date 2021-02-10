@@ -2,25 +2,25 @@ import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 import { HighlightProps } from '.'
 
-type WrapperProps = Pick<HighlightProps, 'backgroundImage' | 'alingment'>
+type WrapperProps = Pick<HighlightProps, 'backgroundImage' | 'alignment'>
 
 const wrapperModifiers = {
   right: () => css`
-    grid-template-areas: 'floatImage content';
+    grid-template-areas: 'floatimage content';
     grid-template-columns: 1.3fr 2fr;
 
     ${Content} {
       text-align: right;
     }
   `,
-
   left: () => css`
-    grid-template-areas: 'content floatImage';
+    grid-template-areas: 'content floatimage';
     grid-template-columns: 2fr 1.3fr;
 
     ${Content} {
       text-align: left;
     }
+
     ${FloatImage} {
       justify-self: end;
     }
@@ -28,14 +28,13 @@ const wrapperModifiers = {
 }
 
 export const Wrapper = styled.section<WrapperProps>`
-  ${({ backgroundImage, alingment }) => css`
+  ${({ backgroundImage, alignment }) => css`
     position: relative;
-    height: 23rem;
-    display: grid;
-    grid-template-areas: 'floatImage content';
     background-image: url(${backgroundImage});
     background-position: center center;
     background-size: cover;
+    height: 23rem;
+    display: grid;
 
     &::after {
       content: '';
@@ -49,17 +48,16 @@ export const Wrapper = styled.section<WrapperProps>`
       height: 32rem;
     `}
 
-    //${wrapperModifiers[alingment!]()}
-    ${wrapperModifiers[alingment!]()}
+    ${wrapperModifiers[alignment!]()}
   `}
 `
 
 export const FloatImage = styled.img`
   ${({ theme }) => css`
+    grid-area: floatimage;
     z-index: ${theme.layers.base};
     max-height: 23rem;
     max-width: 100%;
-    grid-area: floatImage;
     align-self: end;
 
     ${media.greaterThan('medium')`
@@ -70,13 +68,13 @@ export const FloatImage = styled.img`
 
 export const Content = styled.div`
   ${({ theme }) => css`
+    grid-area: content;
     z-index: ${theme.layers.base};
     padding: ${theme.spacings.xsmall};
-    grid-area: content;
 
     ${media.greaterThan('medium')`
-      align-self: end; 
-      padding: ${theme.spacings.large}; 
+      align-self: end;
+      padding: ${theme.spacings.large};
     `}
   `}
 `
@@ -88,7 +86,7 @@ export const Title = styled.h2`
     color: ${theme.colors.white};
 
     ${media.greaterThan('medium')`
-      font-size: ${theme.font.sizes.xxlarge}
+      font-size: ${theme.font.sizes.xxlarge};
     `}
   `}
 `
@@ -101,7 +99,7 @@ export const SubTitle = styled.h3`
     margin-bottom: ${theme.spacings.medium};
 
     ${media.greaterThan('medium')`
-      font-size: ${theme.font.sizes.large}
+      font-size: ${theme.font.sizes.large};
     `}
   `}
 `
