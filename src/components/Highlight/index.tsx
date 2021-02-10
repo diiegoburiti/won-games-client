@@ -4,23 +4,23 @@ import * as S from './styles'
 export type HighlightProps = {
   title: string
   subTitle: string
-  buttonLabel: string
-  buttonLink: string
   backgroundImage: string
   floatImage?: string
-  alingment?: 'right' | 'left'
+  buttonLabel: string
+  buttonLink: string
+  alignment?: 'right' | 'left'
 }
 
 const Highlight = ({
   title,
   subTitle,
-  buttonLabel,
-  buttonLink,
   backgroundImage,
   floatImage,
-  alingment = 'right'
+  buttonLabel,
+  buttonLink,
+  alignment = 'right'
 }: HighlightProps) => (
-  <S.Wrapper backgroundImage={backgroundImage} alingment={alingment}>
+  <S.Wrapper alignment={alignment} backgroundImage={backgroundImage}>
     {!!floatImage && <S.FloatImage src={floatImage} alt={title} />}
     <S.Content>
       <S.Title>{title}</S.Title>
