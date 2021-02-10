@@ -6,20 +6,24 @@ export type HighlightProps = {
   subTitle: string
   buttonLabel: string
   buttonLink: string
+  backgroundImage: string
 }
 
 const Highlight = ({
   title,
   subTitle,
   buttonLabel,
-  buttonLink
+  buttonLink,
+  backgroundImage
 }: HighlightProps) => (
-  <S.Wrapper>
-    <S.Title>{title}</S.Title>
-    <S.SubTitle>{subTitle}</S.SubTitle>
-    <Button as="a" href={buttonLink}>
-      {buttonLabel}
-    </Button>
+  <S.Wrapper backgroundImage={backgroundImage}>
+    <S.Content>
+      <S.Title>{title}</S.Title>
+      <S.SubTitle>{subTitle}</S.SubTitle>
+      <Button as="a" href={buttonLink}>
+        {buttonLabel}
+      </Button>
+    </S.Content>
   </S.Wrapper>
 )
 
