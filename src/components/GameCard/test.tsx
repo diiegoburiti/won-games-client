@@ -55,4 +55,10 @@ describe('<GameCard />', () => {
     expect(price).toHaveStyle({ textDecoration: 'line-through' })
     expect(promotionalPrice).not.toHaveStyle({ textDecoration: 'line-through' })
   })
+
+  it('should render a filled Favorite icon when favorite is true', () => {
+    renderWithTheme(<GameCard {...props} favorite />)
+
+    expect(screen.getByLabelText(/remove from wishlist/i)).toBeInTheDocument()
+  })
 })
