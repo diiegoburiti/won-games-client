@@ -17,16 +17,16 @@ describe('<GameCard />', () => {
     expect(container.firstChild).toBeInTheDocument()
 
     expect(
-      screen.getByRole('heading', { name: /Population Zero/i })
+      screen.getByRole('heading', { name: props.title })
     ).toBeInTheDocument()
 
     expect(
-      screen.getByRole('heading', { name: /Rockstar Games/i })
+      screen.getByRole('heading', { name: props.developer })
     ).toBeInTheDocument()
 
     expect(screen.getByRole('img', { name: props.title })).toHaveAttribute(
       'src',
-      'https://source.unsplash.com/user/willianjusten/300x140'
+      props.img
     )
 
     const price = screen.getByText(/250.00/i)
