@@ -3,6 +3,7 @@ import { screen } from '@testing-library/react'
 
 import GameCardSlider from '.'
 import { renderWithTheme } from 'utils/tests/helpers'
+import theme from 'styles/theme'
 
 const items = [
   {
@@ -52,7 +53,18 @@ describe('<GameCardSlider />', () => {
   it('should render arrow left and right', () => {
     renderWithTheme(<GameCardSlider items={items} />)
 
-    expect(screen.getByLabelText(/prev games/i)).toBeInTheDocument()
+    expect(screen.getByLabelText(/previous games/i)).toBeInTheDocument()
     expect(screen.getByLabelText(/next games/i)).toBeInTheDocument()
+  })
+
+  it('should render white or black when color is passed', () => {
+    renderWithTheme(<GameCardSlider items={items} color="black" />)
+
+    expect(screen.getByLabelText(/previous games/i)).toHaveStyle({
+      color: theme.colors.black
+    })
+    expect(screen.getByLabelText(/next games/i)).toHaveStyle({
+      color: theme.colors.black
+    })
   })
 })
