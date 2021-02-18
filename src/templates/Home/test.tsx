@@ -26,7 +26,7 @@ describe('<Home />', () => {
     ).toBeInTheDocument()
   })
 
-  /* it('should render Heading', () => {
+  it('should render Heading', () => {
     renderWithTheme(<Home />)
 
     expect(screen.getByRole('heading', { name: /news/i })).toBeInTheDocument()
@@ -40,5 +40,5 @@ describe('<Home />', () => {
     expect(
       screen.getByRole('heading', { name: /free games/i })
     ).toBeInTheDocument()
-  }) */
+  })
 })
