@@ -1,15 +1,12 @@
 import { Story, Meta } from '@storybook/react/types-6-0'
 import Highlight, { HighlightProps } from '.'
+import items from './mock'
 
 export default {
   title: 'Highlight',
   component: Highlight,
   args: {
-    title: 'Red Dead it´s back',
-    subTitle: 'Come see jhon`s adventures',
-    buttonLabel: 'Buy now',
-    buttonLink: '/rd2',
-    backgroundImage: '/img/red-dead-img.jpg'
+    ...items
   }
 } as Meta
 
