@@ -1,8 +1,8 @@
 import * as S from './styles'
 
 export type CheckBoxProps = {
-  label: string
-  labelFor: string
+  label?: string
+  labelFor?: string
 }
 
 const CheckBox = ({ label, labelFor = '' }: CheckBoxProps) => (
