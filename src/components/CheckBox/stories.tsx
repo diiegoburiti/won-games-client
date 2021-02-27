@@ -3,7 +3,15 @@ import CheckBox, { CheckBoxProps } from '.'
 
 export default {
   title: 'CheckBox',
-  component: CheckBox
+  component: CheckBox,
+  parameters: {
+    backgrounds: {
+      default: 'won-dark'
+    }
+  },
+  argTypes: {
+    onCheck: { action: 'checked' }
+  }
 } as Meta
 
 export const Default: Story<CheckBoxProps> = (args) => <CheckBox {...args} />
