@@ -14,6 +14,20 @@ export default {
   }
 } as Meta
 
-export const Default: Story<CheckBoxProps> = (args) => (
-  <CheckBox isChecked {...args} />
-)
+export const Default: Story<CheckBoxProps> = (args) => {
+  return (
+    <>
+      <div style={{ marginBottom: '2rem' }}>
+        <CheckBox name="category" labelFor="lorem" label="lorem" {...args} />
+      </div>
+
+      <div style={{ marginBottom: '2rem' }}>
+        <CheckBox name="category" labelFor="ipsum" label="ipsum" {...args} />
+      </div>
+
+      <div>
+        <CheckBox name="category" labelFor="dollor" label="dollor" {...args} />
+      </div>
+    </>
+  )
+}
