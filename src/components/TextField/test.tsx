@@ -118,4 +118,20 @@ describe('<TextField />', () => {
     userEvent.tab()
     expect(input).not.toHaveFocus()
   })
+
+  it('should display error message', () => {
+    const { container } = renderWithTheme(
+      <TextField
+        label="TextField"
+        labelFor="TextField"
+        id="TextField"
+        errorMessage="email already registered"
+        icon={<Email data-testid="icon" />}
+      />
+    )
+
+    expect(screen.getByText(/email already registered/i)).toBeInTheDocument()
+    expect(screen.getByTestId(/icon/i)).toBeInTheDocument()
+    expect(container.firstChild).toMatchSnapshot()
+  })
 })
