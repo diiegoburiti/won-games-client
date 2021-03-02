@@ -2,7 +2,9 @@ import styled, { css, DefaultTheme } from 'styled-components'
 import { TextFieldProps } from '.'
 
 type IconPositionProps = Pick<TextFieldProps, 'iconPosition'>
-type DisabledProps = Pick<TextFieldProps, 'disabled'>
+type WrapperProps = Pick<TextFieldProps, 'disabled'> & {
+  errorMessage?: boolean
+}
 
 const WrapperModifiers = {
   disabled: (theme: DefaultTheme) => css`
@@ -16,12 +18,26 @@ const WrapperModifiers = {
         cursor: currentColor;
       }
     }
+  `,
+
+  errorMessage: (theme: DefaultTheme) => css`
+    ${InputWrapper} {
+      border-color: ${theme.colors.red};
+      &:focus-within {
+        box-shadow: none;
+      }
+    }
+    ${Icon},
+    ${Label} {
+      color: ${theme.colors.red};
+    }
   `
 }
 
-export const Wrapper = styled.section<DisabledProps>`
-  ${({ theme, disabled }) => css`
+export const Wrapper = styled.section<WrapperProps>`
+  ${({ theme, disabled, errorMessage }) => css`
     ${!!disabled && WrapperModifiers.disabled(theme)}
+    ${!!errorMessage && WrapperModifiers.errorMessage(theme)}
   `}
 `
 
@@ -76,5 +92,11 @@ export const Icon = styled.div<IconPositionProps>`
         transform: rotate(360deg);
       }
     }
+  `}
+`
+export const ErrorMessage = styled.span`
+  ${({ theme }) => css`
+    color: ${theme.colors.red};
+    font-size: ${theme.font.sizes.xsmall};
   `}
 `
