@@ -10,7 +10,7 @@ export default {
     labelFor: 'Email',
     id: 'Email',
     initialValue: '',
-    placeholder: 'john.cage@gmail.com',
+    placeholder: 'admin@gmail.com',
     icon: <Email />
   },
   argTypes: {
@@ -24,3 +24,13 @@ export const Default: Story<TextFieldProps> = (args) => (
     <TextField {...args} />
   </div>
 )
+
+export const withError: Story<TextFieldProps> = (args) => (
+  <div style={{ maxWidth: 300, padding: 15 }}>
+    <TextField {...args} />
+  </div>
+)
+
+withError.args = {
+  errorMessage: 'E-mail already registered'
+}
