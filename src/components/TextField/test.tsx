@@ -78,4 +78,44 @@ describe('<TextField />', () => {
 
     expect(screen.getByTestId(/icon/i).parentElement).toHaveStyle({ order: 1 })
   })
+
+  it('Does not changes value when disabled is passed', async () => {
+    const onInput = jest.fn()
+    renderWithTheme(
+      <TextField
+        onInput={onInput}
+        label="TextField"
+        labelFor="TextField"
+        id="TextField"
+        disabled
+      />
+    )
+
+    const input = screen.getByRole('textbox')
+    const text = 'this is the new input value'
+    userEvent.type(input, text)
+
+    await waitFor(() => {
+      expect(input).not.toHaveValue(text)
+      expect(onInput).not.toHaveBeenCalledTimes(text.length)
+    })
+    expect(onInput).not.toHaveBeenCalledWith(text)
+  })
+
+  it('does not be accessible by tab when disabled is passed', () => {
+    renderWithTheme(
+      <TextField
+        label="TextField"
+        labelFor="TextField"
+        id="TextField"
+        disabled
+      />
+    )
+
+    const input = screen.getByLabelText('TextField')
+    expect(document.body).toHaveFocus()
+
+    userEvent.tab()
+    expect(input).not.toHaveFocus()
+  })
 })
