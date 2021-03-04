@@ -22,7 +22,7 @@ describe('<Auth />', () => {
 
     expect(
       screen.getByRole('heading', {
-        name: /wom is the best and most complete gaming plataform/i
+        name: /won is the best and most complete gaming plataform/i
       })
     ).toBeInTheDocument()
 
