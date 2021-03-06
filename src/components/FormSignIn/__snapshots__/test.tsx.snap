@@ -105,6 +105,7 @@ exports[`<FormSignIn /> should render form 1`] = `
 }
 
 .c9 a {
+  margin-left: 0.8rem;
   color: #3CD3C1;
   -webkit-text-decoration: none;
   text-decoration: none;
