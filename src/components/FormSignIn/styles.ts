@@ -21,6 +21,7 @@ export const FormLink = styled.div`
     color: ${theme.colors.black};
     text-align: center;
     a {
+      margin-left: ${theme.spacings.xxsmall};
       color: ${theme.colors.secondary};
       text-decoration: none;
       border-bottom: 0.1rem solid ${theme.colors.secondary};
