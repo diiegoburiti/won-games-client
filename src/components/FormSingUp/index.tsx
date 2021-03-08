@@ -4,7 +4,7 @@ import TextField from 'components/TextField'
 import Button from 'components/Button'
 import { FormLink, FormWrapper } from 'components/Form'
 
-const FormSignIn = () => (
+const FormSignUp = () => (
   <FormWrapper>
     <form aria-label="sing-up form">
       <TextField
@@ -33,12 +33,12 @@ const FormSignIn = () => (
       />
 
       <Button size="large" fullWidth>
-        Sing Up Now
+        Sign Up Now
       </Button>
 
       <FormLink>
         Already have an account?
-        <Link href="/sign-ip">
+        <Link href="/sign-in">
           <a>Sign in</a>
         </Link>
       </FormLink>
@@ -46,4 +46,4 @@ const FormSignIn = () => (
   </FormWrapper>
 )
 
-export default FormSignIn
+export default FormSignUp

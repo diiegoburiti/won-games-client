@@ -13,7 +13,7 @@ describe('<FormSingUp />', () => {
     expect(screen.getByPlaceholderText('password')).toBeInTheDocument()
     expect(screen.getByPlaceholderText(/Confirm password/i)).toBeInTheDocument()
     expect(
-      screen.getByRole('button', { name: /Sing Up Now/i })
+      screen.getByRole('button', { name: /Sign Up Now/i })
     ).toBeInTheDocument()
 
     expect(container.firstChild).toMatchSnapshot()

@@ -283,7 +283,7 @@ exports[`<FormSingUp /> should render form Sign up correctly 1`] = `
       class="c6 c7"
     >
       <span>
-        Sing Up Now
+        Sign Up Now
       </span>
     </button>
     <div
@@ -291,7 +291,7 @@ exports[`<FormSingUp /> should render form Sign up correctly 1`] = `
     >
       Already have an account?
       <a
-        href="/sign-ip"
+        href="/sign-in"
       >
         Sign in
       </a>

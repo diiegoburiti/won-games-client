@@ -24,7 +24,7 @@ const FormSignIn = () => (
       <S.ForgotPassword href="#">Forgot your password?</S.ForgotPassword>
 
       <Button size="large" fullWidth>
-        Sing In Now
+        Sign In Now
       </Button>
 
       <FormLink>

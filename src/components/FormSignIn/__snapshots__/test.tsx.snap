@@ -227,7 +227,7 @@ exports[`<FormSignIn /> should render form 1`] = `
           class="c7 c8"
         >
           <span>
-            Sing In Now
+            Sign In Now
           </span>
         </button>
         <div
