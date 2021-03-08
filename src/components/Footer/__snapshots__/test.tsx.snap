@@ -270,7 +270,9 @@ exports[`<Footer /> should render 4 columns topics 1`] = `
   <div
     class="c6"
   >
-    Won Games 2020 🄯 All rights reserved.
+    Won Games 2020 - 
+    2021
+     © All rights reserved.
   </div>
 </footer>
 `

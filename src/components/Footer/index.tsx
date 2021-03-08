@@ -62,7 +62,9 @@ const Footer = () => (
         <span>Lorem ipsum dolor sit amet.</span>
       </S.Column>
     </S.Content>
-    <S.CopyRight>Won Games 2020 🄯 All rights reserved.</S.CopyRight>
+    <S.CopyRight>
+      Won Games 2020 - {new Date().getFullYear()} © All rights reserved.
+    </S.CopyRight>
   </S.Wrapper>
 )
 
