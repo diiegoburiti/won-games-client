@@ -25,6 +25,12 @@ export const IconWrapper = styled.div`
     cursor: pointer;
     width: 2.4rem;
     height: 2.4rem;
+
+    svg {
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
   `}
 `
 
