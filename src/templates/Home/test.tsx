@@ -20,31 +20,49 @@ const props = {
   freeHighlight: highlightMock
 }
 
+jest.mock('components/Menu', () => {
+  return {
+    __esModule: true,
+    default: function Mock() {
+      return <div data-testid="mock Menu"></div>
+    }
+  }
+})
+
+jest.mock('components/Footer', () => {
+  return {
+    __esModule: true,
+    default: function Mock() {
+      return <div data-testid="mock Footer"></div>
+    }
+  }
+})
+
+jest.mock('components/ShowCase', () => {
+  return {
+    __esModule: true,
+    default: function Mock() {
+      return <div data-testid="mock ShowCase"></div>
+    }
+  }
+})
+
+jest.mock('components/BannerSlider', () => {
+  return {
+    __esModule: true,
+    default: function Mock() {
+      return <div data-testid="mock BannerSlider"></div>
+    }
+  }
+})
+
 describe('<Home />', () => {
   it('should render menu and footer', () => {
     renderWithTheme(<Home {...props} />)
 
-    expect(screen.getByLabelText(/open menu/i)).toBeInTheDocument()
-    expect(
-      screen.getByRole('heading', { name: /follow us/i })
-    ).toBeInTheDocument()
-    expect(screen.getAllByRole('img', { name: /won games/i })).toHaveLength(2)
-
-    /* Should render titles */
-    expect(screen.getByRole('heading', { name: /news/i })).toBeInTheDocument()
-    expect(
-      screen.getByRole('heading', { name: /most popular/i })
-    ).toBeInTheDocument()
-    expect(
-      screen.getByRole('heading', { name: /upcomming/i })
-    ).toBeInTheDocument()
-    expect(
-      screen.getByRole('heading', { name: /free games/i })
-    ).toBeInTheDocument()
-
-    /* Should render section */
-    expect(screen.getAllByText(/defy death 1/i)).toHaveLength(1)
-    expect(screen.getAllByText(/population zero/i)).toHaveLength(5)
-    expect(screen.getAllByText(/red dead is back/i)).toHaveLength(3)
+    expect(screen.getByTestId('mock Menu')).toBeInTheDocument()
+    expect(screen.getByTestId('mock BannerSlider')).toBeInTheDocument()
+    expect(screen.getByTestId('mock Footer')).toBeInTheDocument()
+    expect(screen.getAllByTestId('mock ShowCase')).toHaveLength(5)
   })
 })
