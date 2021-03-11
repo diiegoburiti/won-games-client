@@ -21,14 +21,17 @@ const GameInfo = ({ title, description, price }: GameInfoProps) => (
     </Heading>
 
     <Ribbon color="secondary">{`$${price}`}</Ribbon>
-    <span>{description}</span>
 
-    <Button size="large" icon={<AddShoppingCart />}>
-      Add to card
-    </Button>
-    <Button size="large" icon={<FavoriteBorder />} minimal>
-      wishlist
-    </Button>
+    <S.Description>{description}</S.Description>
+
+    <S.ButtonsWrapper>
+      <Button size="large" icon={<AddShoppingCart />}>
+        Add to card
+      </Button>
+      <Button size="large" icon={<FavoriteBorder />} minimal>
+        wishlist
+      </Button>
+    </S.ButtonsWrapper>
   </S.Wrapper>
 )
 
