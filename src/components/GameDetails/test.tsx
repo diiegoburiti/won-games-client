@@ -5,7 +5,8 @@ import GameDetails, { GameDetailsProps } from '.'
 
 const props: GameDetailsProps = {
   platforms: ['windows', 'linux', 'mac'],
-  developer: 'Rockstar'
+  developer: 'Rockstar',
+  releaseDate: 'Nov 16, 2019'
 }
 
 describe('<GameDetails />', () => {
@@ -32,11 +33,11 @@ describe('<GameDetails />', () => {
     //expect(container.firstChild).toMatchSnapshot()
   })
 
-  /*   it('should render platform icons', () => {
+  it('should render platform icons', () => {
     renderWithTheme(<GameDetails {...props} />)
 
     expect(screen.getByRole('img', { name: /Linux/i })).toBeInTheDocument()
     expect(screen.getByRole('img', { name: /mac/i })).toBeInTheDocument()
     expect(screen.getByRole('img', { name: /Windows/i })).toBeInTheDocument()
-  }) */
+  })
 })
