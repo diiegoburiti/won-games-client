@@ -6,7 +6,7 @@ import GameDetails, { GameDetailsProps } from '.'
 const props: GameDetailsProps = {
   platforms: ['windows', 'linux', 'mac'],
   developer: 'Rockstar',
-  releaseDate: 'Nov 16, 2019'
+  releaseDate: '2020-11-21T23:00:00'
 }
 
 describe('<GameDetails />', () => {
@@ -39,5 +39,11 @@ describe('<GameDetails />', () => {
     expect(screen.getByRole('img', { name: /Linux/i })).toBeInTheDocument()
     expect(screen.getByRole('img', { name: /mac/i })).toBeInTheDocument()
     expect(screen.getByRole('img', { name: /Windows/i })).toBeInTheDocument()
+  })
+
+  it('should render release date', () => {
+    renderWithTheme(<GameDetails {...props} />)
+
+    expect(screen.getByText('Nov 21, 2020')).toBeInTheDocument()
   })
 })
