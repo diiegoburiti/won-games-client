@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { ArrowBackIos as ArrowLeft } from '@styled-icons/material-outlined/ArrowBackIos'
 import { ArrowForwardIos as ArrowRight } from '@styled-icons/material-outlined/ArrowForwardIos'
 
@@ -49,19 +50,27 @@ export type GalleryProps = {
   items: GalleryImageProps[]
 }
 
-const Gallery = ({ items }: GalleryProps) => (
-  <S.Wrapper>
-    <Slider settings={settings}>
-      {items.map((item, index) => (
-        <img
-          role="button"
-          key={`thumb-${index}`}
-          src={item.src}
-          alt={`Thumb - ${item.label}`}
-        />
-      ))}
-    </Slider>
-  </S.Wrapper>
-)
-
+const Gallery = ({ items }: GalleryProps) => {
+  const [hiddenModal, setHiddenModal] = useState(true)
+  return (
+    <S.Wrapper>
+      <Slider settings={settings}>
+        {items.map((item, index) => (
+          <img
+            role="button"
+            key={`thumb-${index}`}
+            src={item.src}
+            alt={`Thumb - ${item.label}`}
+            onClick={() => setHiddenModal(false)}
+          />
+        ))}
+      </Slider>
+      <S.Modal
+        isOpen={hiddenModal}
+        aria-label="modal"
+        aria-hidden={!!hiddenModal}
+      ></S.Modal>
+    </S.Wrapper>
+  )
+}
 export default Gallery
