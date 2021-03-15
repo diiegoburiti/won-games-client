@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TextContent /> should render the title and content 1`] = `
+.c1 {
+  color: #FAFAFA;
+  padding-left: 0.8rem;
+  border-left: 0.7rem solid #3CD3C1;
+  font-size: 2.0rem;
+}
+
+.c0 {
+  color: #FAFAFA;
+}
+
+.c0 h1,
+.c0 h2,
+.c0 h3,
+.c0 h4,
+.c0 h5,
+.c0 h6 {
+  color: #FAFAFA;
+  margin: 1.6rem 0;
+  padding-left: 0.8rem;
+  border-left: 0.7rem solid #3CD3C1;
+}
+
+.c0 p {
+  margin-bottom: 1.6rem;
+}
+
+.c0 a {
+  color: #F231A5;
+}
+
+.c0 img {
+  max-width: min(70rem,100%);
+  margin-bottom: 1.6rem;
+}
+
+.c0 ul,
+.c0 ol {
+  padding: 1.6rem 2.4rem;
+}
+
+.c0 hr {
+  margin: 2.4rem 0;
+}
+
+@media (min-width:768px) {
+  .c1 {
+    font-size: 2.8rem;
+  }
+}
+
+@media (min-width:768px) {
+  .c0 {
+    background: #FAFAFA;
+    padding: 3.2rem;
+    color: #030517;
+  }
+}
+
+@media (min-width:768px) {
+  .c0 h1,
+  .c0 h2,
+  .c0 h3,
+  .c0 h4,
+  .c0 h5,
+  .c0 h6 {
+    color: #030517;
+  }
+}
+
+<div
+  class="c0"
+>
+  <h2
+    class="c1"
+    color="white"
+  >
+    Gta v
+  </h2>
+  <div>
+    <h1>
+      Description
+    </h1>
+  </div>
+</div>
+`
