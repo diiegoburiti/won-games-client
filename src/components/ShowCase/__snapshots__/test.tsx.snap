@@ -407,6 +407,7 @@ exports[`<ShowCase /> should render ShowCase 1`] = `
 }
 
 .c0 {
+  width: 100%;
   max-width: 130rem;
   margin-left: auto;
   margin-right: auto;
