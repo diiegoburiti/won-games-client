@@ -1,7 +1,17 @@
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
-export type CoverProps = {
+import { Container } from 'components/Container'
+
+export const Main = styled.main`
+  margin-top: 20rem;
+
+  ${media.greaterThan('medium')`
+    margin-top: 58rem;
+  `}
+`
+
+type CoverProps = {
   src: string
 }
 
@@ -16,9 +26,30 @@ export const Cover = styled.div<CoverProps>`
     background-size: cover;
     background-position: top center;
     opacity: 0.4;
+
     ${media.greaterThan('medium')`
       height: 70rem;
-      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 90%);
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 75%);
     `}
+  `}
+`
+
+const Section = styled(Container).attrs({ as: 'section' })`
+  ${({ theme }) => css`
+    margin-bottom: ${theme.spacings.xlarge};
+
+    ${media.greaterThan('medium')`
+      margin-bottom: calc(${theme.spacings.xlarge} * 2);
+    `}
+  `}
+`
+
+export const SectionGameInfo = styled(Section)``
+
+export const SectionGallery = styled(Section)`
+  display: none;
+
+  ${media.greaterThan('medium')`
+    display: block;
   `}
 `
