@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Empty /> should render correctly 1`] = `
+<body>
+  <div>
+    <main
+      class=""
+    >
+      <img
+        alt="a gamer in a couch playing videogame"
+        class=""
+        role="image"
+        src="/img/empty.svg"
+      />
+      <h2
+        class=""
+      >
+        Nothing here
+      </h2>
+      <p
+        class=""
+      >
+        Some text here
+      </p>
+    </main>
+  </div>
+</body>
+`
