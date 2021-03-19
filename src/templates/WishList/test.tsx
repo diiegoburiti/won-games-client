@@ -9,7 +9,8 @@ import WishList from '.'
 
 const props = {
   recommendedGames: gamesMock.slice(0, 5),
-  recommendedHighlight: HighlightMock
+  recommendedHighlight: HighlightMock,
+  games: gamesMock
 }
 
 jest.mock('components/ShowCase', () => ({
@@ -20,7 +21,7 @@ jest.mock('components/ShowCase', () => ({
 }))
 
 describe('<WishList />', () => {
-  it('should render the heading', () => {
+  it('should render WishList correctly', () => {
     renderWithTheme(<WishList {...props} />)
 
     expect(
@@ -29,6 +30,7 @@ describe('<WishList />', () => {
 
     expect(screen.getByTestId('Mock ShowCase')).toBeInTheDocument()
 
+    expect(screen.getAllByText(/Population Zero/i)).toHaveLength(6)
     //expect(container.firstChild).toMatchSnapshot()
   })
 })
