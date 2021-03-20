@@ -11,7 +11,7 @@ const props = {
 
 describe('<GameItem />', () => {
   it('should render GameItem correctly', () => {
-    renderWithTheme(<GameItem {...props} />)
+    const { container } = renderWithTheme(<GameItem {...props} />)
 
     expect(
       screen.getByRole('heading', { name: props.title })
@@ -24,7 +24,7 @@ describe('<GameItem />', () => {
       props.img
     )
 
-    //expect(container.firstChild).toMatchSnapshot()
+    expect(container.firstChild).toMatchSnapshot()
   })
 
   it('should render the item with download link', () => {
