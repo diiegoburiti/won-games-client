@@ -83,6 +83,12 @@ exports[`<PaymentOptions /> should render the heading 1`] = `
   margin-left: 0.8rem;
 }
 
+.c13:disabled {
+  cursor: not-allowed;
+  -webkit-filter: saturate(40%);
+  filter: saturate(40%);
+}
+
 .c2 {
   color: #030517;
   position: relative;
@@ -365,6 +371,7 @@ exports[`<PaymentOptions /> should render the heading 1`] = `
     </a>
     <button
       class="c11 c13"
+      disabled=""
     >
       <svg
         aria-hidden="true"
