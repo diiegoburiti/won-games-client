@@ -119,6 +119,7 @@ exports[`<TextField /> should display error message 1`] = `
     <input
       class="c8"
       id="TextField"
+      name="TextField"
       type="text"
       value=""
     />
@@ -180,6 +181,8 @@ exports[`<TextField /> should render with label 1`] = `
   >
     <input
       class="c2"
+      id="email"
+      name="email"
       type="text"
       value=""
     />

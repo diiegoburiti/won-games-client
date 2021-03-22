@@ -8,7 +8,7 @@ import TextField from '.'
 describe('<TextField />', () => {
   it('should render with label', () => {
     const { container } = renderWithTheme(
-      <TextField label="E-mail" labelFor="email" />
+      <TextField label="E-mail" name="email" />
     )
 
     expect(screen.getByRole('textbox')).toBeInTheDocument()
@@ -36,7 +36,7 @@ describe('<TextField />', () => {
       <TextField
         onInput={onInput}
         label="TextField"
-        labelFor="TextField"
+        name="TextField"
         id="TextField"
       />
     )
@@ -55,7 +55,7 @@ describe('<TextField />', () => {
 
   it('should be accessible by tab', () => {
     renderWithTheme(
-      <TextField label="TextField" labelFor="TextField" id="TextField" />
+      <TextField label="TextField" name="TextField" id="TextField" />
     )
 
     const input = screen.getByLabelText('TextField')
@@ -85,7 +85,7 @@ describe('<TextField />', () => {
       <TextField
         onInput={onInput}
         label="TextField"
-        labelFor="TextField"
+        name="TextField"
         id="TextField"
         disabled
       />
@@ -104,12 +104,7 @@ describe('<TextField />', () => {
 
   it('does not be accessible by tab when disabled is passed', () => {
     renderWithTheme(
-      <TextField
-        label="TextField"
-        labelFor="TextField"
-        id="TextField"
-        disabled
-      />
+      <TextField label="TextField" name="TextField" id="TextField" disabled />
     )
 
     const input = screen.getByLabelText('TextField')
@@ -123,7 +118,7 @@ describe('<TextField />', () => {
     const { container } = renderWithTheme(
       <TextField
         label="TextField"
-        labelFor="TextField"
+        name="TextField"
         id="TextField"
         errorMessage="email already registered"
         icon={<Email data-testid="icon" />}
