@@ -31,7 +31,7 @@ module.exports = (plop) => {
       }
     ]
   })
-  plop.setGenerator('templates', {
+  plop.setGenerator('template', {
     description: 'Create a template',
     prompts: [
       {
@@ -55,6 +55,24 @@ module.exports = (plop) => {
         type: 'add',
         path: '../src/templates/{{pascalCase name}}/test.tsx',
         templateFile: 'templates/test.tsx.hbs'
+      }
+    ]
+  })
+
+  plop.setGenerator('page', {
+    description: 'Create a template',
+    prompts: [
+      {
+        type: 'input',
+        name: 'name',
+        message: 'What is your page name?'
+      }
+    ],
+    actions: [
+      {
+        type: 'add',
+        path: '../src/pages/{{pascalCase name}}/index.tsx',
+        templateFile: 'templates/Component.tsx.hbs'
       }
     ]
   })
