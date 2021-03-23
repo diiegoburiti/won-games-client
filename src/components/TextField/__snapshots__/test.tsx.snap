@@ -25,7 +25,7 @@ exports[`<TextField /> should display error message 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  padding: 0 1.6rem;
+  padding: 0 1.6rem 0 0;
   border: 0.2rem solid;
   border-radius: 0.2rem;
   border-color: #EAEAEA;
@@ -138,7 +138,7 @@ exports[`<TextField /> should render with label 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  padding: 0 1.6rem;
+  padding: 0 1.6rem 0 0;
   border: 0.2rem solid;
   border-radius: 0.2rem;
   border-color: #EAEAEA;
