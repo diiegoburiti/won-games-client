@@ -44,7 +44,7 @@ export const Wrapper = styled.section<WrapperProps>`
 export const InputWrapper = styled.div`
   ${({ theme }) => css`
     display: flex;
-    padding: 0 ${theme.spacings.xsmall};
+    padding: 0 ${theme.spacings.xsmall} 0 0;
     border: 0.2rem solid;
     border-radius: 0.2rem;
     border-color: ${theme.colors.lightGray};
