@@ -1,7 +1,7 @@
 import CardsList, { CardsListProps } from 'components/CardsList'
 import Profile from 'templates/Profile'
 
-import mockCards from 'components/PaymentOptions/mock'
+import cardsMock from 'components/PaymentOptions/mock'
 
 export default function ProfileCards({ cards }: CardsListProps) {
   return (
@@ -14,7 +14,7 @@ export default function ProfileCards({ cards }: CardsListProps) {
 export function getServerSideProps() {
   return {
     props: {
-      cards: mockCards
+      cards: cardsMock
     }
   }
 }

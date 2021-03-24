@@ -1,6 +1,6 @@
 import Profile from 'templates/Profile'
 import OrdersList, { OrdersListProps } from 'components/OrderList'
-import mockOrders from 'components/OrderList/mock'
+import ordersMock from 'components/OrderList/mock'
 
 export default function ProfileCards({ items }: OrdersListProps) {
   return (
@@ -13,7 +13,7 @@ export default function ProfileCards({ items }: OrdersListProps) {
 export function getServerSideProps() {
   return {
     props: {
-      items: mockOrders
+      items: ordersMock
     }
   }
 }
