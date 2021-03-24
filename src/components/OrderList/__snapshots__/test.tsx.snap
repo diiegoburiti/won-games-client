@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<OrderList /> should render OrderList correclty 1`] = `
+.c1 {
+  color: #030517;
+  position: relative;
+  margin-bottom: 3.2rem;
+  font-size: 1.6rem;
+}
+
+.c1::after {
+  position: absolute;
+  left: 0;
+  bottom: -0.5rem;
+  content: '';
+  width: 5rem;
+  border-bottom: 0.5rem solid #F231A5;
+}
+
+.c1::after {
+  width: 3rem;
+}
+
+.c0 .sc-gsTCUz:last-child {
+  border-bottom: 0;
+}
+
+<div
+  class="c0"
+>
+  <h2
+    class="c1"
+    color="black"
+  >
+    My orders
+  </h2>
+  <div
+    data-testid="Mock GameItem"
+  />
+  <div
+    data-testid="Mock GameItem"
+  />
+</div>
+`
