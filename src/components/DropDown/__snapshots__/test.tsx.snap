@@ -1,0 +1,165 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DropDown /> should handle open/close dropdown 1`] = `
+.c1 {
+  cursor: pointer;
+  color: #FAFAFA;
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding-right: 2.4rem;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  background: #FAFAFA;
+  color: #030517;
+  margin-top: 2.4rem;
+  position: absolute;
+  right: 0;
+}
+
+.c3::before {
+  content: '';
+  position: absolute;
+  border-right: 1.2rem solid transparent;
+  border-left: 1.2rem solid transparent;
+  border-bottom: 1.2rem solid #FAFAFA;
+  top: -1.2rem;
+  right: 2.4rem;
+}
+
+.c0 {
+  position: relative;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+
+.c0 .c2 {
+  -webkit-transition: -webkit-transform 0.2s ease-in,opacity 0.3s ease-in-out;
+  -webkit-transition: transform 0.2s ease-in,opacity 0.3s ease-in-out;
+  transition: transform 0.2s ease-in,opacity 0.3s ease-in-out;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transform: translateY(-2rem);
+  -ms-transform: translateY(-2rem);
+  transform: translateY(-2rem);
+}
+
+<div
+  class="c0"
+>
+  <div
+    class="c1"
+  >
+    <h5
+      aria-label="toogle dropdown"
+    >
+      Click here
+    </h5>
+  </div>
+  <div
+    aria-hidden="true"
+    class="c2 c3"
+  >
+    <span>
+      content
+    </span>
+  </div>
+</div>
+`
+
+exports[`<DropDown /> should render title 1`] = `
+.c1 {
+  cursor: pointer;
+  color: #FAFAFA;
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding-right: 2.4rem;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  background: #FAFAFA;
+  color: #030517;
+  margin-top: 2.4rem;
+  position: absolute;
+  right: 0;
+}
+
+.c3::before {
+  content: '';
+  position: absolute;
+  border-right: 1.2rem solid transparent;
+  border-left: 1.2rem solid transparent;
+  border-bottom: 1.2rem solid #FAFAFA;
+  top: -1.2rem;
+  right: 2.4rem;
+}
+
+.c0 {
+  position: relative;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+
+.c0 .c2 {
+  -webkit-transition: -webkit-transform 0.2s ease-in,opacity 0.3s ease-in-out;
+  -webkit-transition: transform 0.2s ease-in,opacity 0.3s ease-in-out;
+  transition: transform 0.2s ease-in,opacity 0.3s ease-in-out;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transform: translateY(-2rem);
+  -ms-transform: translateY(-2rem);
+  transform: translateY(-2rem);
+}
+
+<div
+  class="c0"
+>
+  <div
+    class="c1"
+  >
+    <h5
+      aria-label="toogle dropdown"
+    >
+      Click here
+    </h5>
+  </div>
+  <div
+    aria-hidden="true"
+    class="c2 c3"
+  >
+    <span>
+      content
+    </span>
+  </div>
+</div>
+`
