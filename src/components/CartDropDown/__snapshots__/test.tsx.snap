@@ -299,7 +299,7 @@ exports[`<CartDrowDown /> should render the content correctly 1`] = `
       aria-hidden="true"
       class="c6 c7"
     >
-      <main
+      <div
         class="c8 c9"
       >
         <div
@@ -378,7 +378,7 @@ exports[`<CartDrowDown /> should render the content correctly 1`] = `
             </span>
           </a>
         </div>
-      </main>
+      </div>
     </div>
   </div>
 </main>
