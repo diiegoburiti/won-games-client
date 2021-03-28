@@ -54,7 +54,10 @@ export const MenuNav = styled.div`
     margin-left: ${theme.spacings.small};
     ${media.greaterThan('medium')`
 			margin-left: ${theme.spacings.small};
-		`}
+		`},
+    a {
+      cursor: pointer;
+    }
   `}
 `
 
