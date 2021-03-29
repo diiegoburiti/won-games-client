@@ -6,5 +6,8 @@ module.exports = withPWA({
   pwa: {
     dest: 'public',
     disable: !isProd
+  },
+  env: {
+    graphqlUrL: process.env.GRAPHQL_URL
   }
 })
