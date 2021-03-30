@@ -2,17 +2,14 @@ import Head from 'next/head'
 import { AppProps } from 'next/app'
 
 import { ApolloProvider } from '@apollo/client'
-import { ApolloClient, InMemoryCache } from '@apollo/client'
+import { useApollo } from 'utils/apollo'
 
 import { ThemeProvider } from 'styled-components'
 import GlobalStyles from 'styles/global'
 import theme from 'styles/theme'
 
 function App({ Component, pageProps }: AppProps) {
-  const client = new ApolloClient({
-    uri: process.env.graphqlUrL,
-    cache: new InMemoryCache()
-  })
+  const client = useApollo(pageProps.initialApoloState)
 
   return (
     <ApolloProvider client={client}>
