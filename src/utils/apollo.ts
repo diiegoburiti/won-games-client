@@ -11,7 +11,7 @@ let apolloClient: ApolloClient<NormalizedCacheObject>
 function createApolloClient() {
   return new ApolloClient({
     ssrMode: typeof window === undefined,
-    link: new HttpLink({ uri: process.env.graphqlUrL }),
+    link: new HttpLink({ uri: process.env.graphqlUrl }),
     cache: new InMemoryCache()
   })
 }

@@ -8,6 +8,6 @@ module.exports = withPWA({
     disable: !isProd
   },
   env: {
-    graphqlUrL: process.env.GRAPHQL_URL
+    graphqlUrl: process.env.GRAPHQL_URL
   }
 })
