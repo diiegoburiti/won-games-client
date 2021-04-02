@@ -5,60 +5,24 @@ import GameCardSlider from '.'
 import { renderWithTheme } from 'utils/tests/helpers'
 import theme from 'styles/theme'
 
-const items = [
-  {
-    title: 'Population Zero',
-    developer: 'Rockstar Games',
-    img: 'https://source.unsplash.com/user/willianjusten/300x140',
-    price: 'R$ 235,00',
-    promotionalPrice: 'R$ 215,00'
-  },
-  {
-    title: 'Population Zero',
-    developer: 'Rockstar Games',
-    img: 'https://source.unsplash.com/user/willianjusten/300x141',
-    price: 'R$ 235,00',
-    promotionalPrice: 'R$ 215,00'
-  },
-  {
-    title: 'Population Zero',
-    developer: 'Rockstar Games',
-    img: 'https://source.unsplash.com/user/willianjusten/300x142',
-    price: 'R$ 235,00',
-    promotionalPrice: 'R$ 215,00'
-  },
-  {
-    title: 'Population Zero',
-    developer: 'Rockstar Games',
-    img: 'https://source.unsplash.com/user/willianjusten/300x143',
-    price: 'R$ 235,00',
-    promotionalPrice: 'R$ 215,00'
-  },
-  {
-    title: 'Population Zero',
-    developer: 'Rockstar Games',
-    img: 'https://source.unsplash.com/user/willianjusten/300x144',
-    price: 'R$ 235,00',
-    promotionalPrice: 'R$ 215,00'
-  }
-]
+import mockItems from './mock'
 
 describe('<GameCardSlider />', () => {
   it('should render GameCardSlider with 5 items', () => {
-    const { container } = renderWithTheme(<GameCardSlider items={items} />)
+    const { container } = renderWithTheme(<GameCardSlider items={mockItems} />)
 
-    expect(container.querySelectorAll('.slick-slide')).toHaveLength(5)
+    expect(container.querySelectorAll('.slick-slide')).toHaveLength(6)
   })
 
   it('should render arrow left and right', () => {
-    renderWithTheme(<GameCardSlider items={items} />)
+    renderWithTheme(<GameCardSlider items={mockItems} />)
 
     expect(screen.getByLabelText(/previous games/i)).toBeInTheDocument()
     expect(screen.getByLabelText(/next games/i)).toBeInTheDocument()
   })
 
   it('should render white or black when color is passed', () => {
-    renderWithTheme(<GameCardSlider items={items} color="black" />)
+    renderWithTheme(<GameCardSlider items={mockItems} color="black" />)
 
     expect(screen.getByLabelText(/previous games/i)).toHaveStyle({
       color: theme.colors.black
