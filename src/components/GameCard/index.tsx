@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import {
   AddShoppingCart,
   Favorite,
@@ -13,6 +14,7 @@ export type GameCardProps = {
   developer: string
   img: string
   price: string
+  slug: string
   promotionalPrice?: string
   favorite?: boolean
   ribbon?: React.ReactNode
@@ -26,6 +28,7 @@ const GameCard = ({
   developer,
   img,
   price,
+  slug,
   promotionalPrice,
   favorite = false,
   ribbonSizes = 'small',
@@ -39,14 +42,18 @@ const GameCard = ({
         {ribbon}
       </Ribbon>
     )}
-    <S.ImageBox>
-      <img src={img} alt={title} />
-    </S.ImageBox>
+    <Link href={`game/${slug}`} passHref>
+      <S.ImageBox>
+        <img src={img} alt={title} />
+      </S.ImageBox>
+    </Link>
     <S.Content>
-      <S.Info>
-        <S.Title>{title}</S.Title>
-        <S.Developer>{developer}</S.Developer>
-      </S.Info>
+      <Link href={`game/${slug}`} passHref>
+        <S.Info>
+          <S.Title>{title}</S.Title>
+          <S.Developer>{developer}</S.Developer>
+        </S.Info>
+      </Link>
       <S.FavButton role="button" onClick={onFav}>
         {favorite ? (
           <Favorite aria-label="Remove From WishList" />
