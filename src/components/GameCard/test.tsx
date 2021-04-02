@@ -6,6 +6,7 @@ import GameCard from '.'
 const props = {
   title: 'Population Zero',
   developer: 'Rockstar Games',
+  slug: 'population-zero',
   img: 'https://source.unsplash.com/user/willianjusten/300x140',
   price: 'R$ 250.00'
 }
@@ -27,6 +28,10 @@ describe('<GameCard />', () => {
     expect(screen.getByRole('img', { name: props.title })).toHaveAttribute(
       'src',
       props.img
+    )
+    expect(screen.getByRole('link', { name: props.title })).toHaveAttribute(
+      'href',
+      `/game/${props.slug}`
     )
 
     const price = screen.getByText(/250.00/i)

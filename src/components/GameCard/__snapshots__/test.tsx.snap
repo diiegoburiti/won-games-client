@@ -56,6 +56,20 @@ exports[`<GameCard /> should render correctly 1`] = `
   width: 100%;
   height: 100%;
   background-color: #FAFAFA;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+
+.c0 a {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  -webkit-transform: translateY(-8px);
+  -ms-transform: translateY(-8px);
+  transform: translateY(-8px);
+  box-shadow: 1px 1px 1px 0px #2E2F42;
 }
 
 .c1 {
@@ -157,19 +171,21 @@ exports[`<GameCard /> should render correctly 1`] = `
 <article
   class="c0"
 >
-  <div
+  <a
     class="c1"
+    href="/game/population-zero"
   >
     <img
       alt="Population Zero"
       src="https://source.unsplash.com/user/willianjusten/300x140"
     />
-  </div>
+  </a>
   <div
     class="c2"
   >
-    <div
+    <a
       class="c3"
+      href="/game/population-zero"
     >
       <h3
         class="c4"
@@ -181,7 +197,7 @@ exports[`<GameCard /> should render correctly 1`] = `
       >
         Rockstar Games
       </h4>
-    </div>
+    </a>
     <div
       class="c6"
       role="button"
@@ -235,4 +251,4 @@ exports[`<GameCard /> should render correctly 1`] = `
     </div>
   </div>
 </article>
-`;
+`
