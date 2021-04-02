@@ -8,10 +8,18 @@ export const Wrapper = styled.article`
     width: 100%;
     height: 100%;
     background-color: ${theme.colors.white};
+    transition: ${theme.transition.default};
+    a {
+      text-decoration: none;
+    }
+    &:hover {
+      transform: translateY(-8px);
+      box-shadow: 1px 1px 1px 0px ${theme.colors.darkGray};
+    }
   `}
 `
 
-export const ImageBox = styled.div`
+export const ImageBox = styled.a`
   height: 14rem;
   width: 100%;
   background: #f6f7f8;
@@ -53,7 +61,7 @@ export const Content = styled.div`
   `}
 `
 
-export const Info = styled.div`
+export const Info = styled.a`
   max-width: calc(100% - 2.5rem);
 `
 
