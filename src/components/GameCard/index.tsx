@@ -1,44 +1,47 @@
 import Link from 'next/link'
+
 import {
   AddShoppingCart,
   Favorite,
   FavoriteBorder
 } from '@styled-icons/material-outlined'
 
-import Button from 'components/Button'
 import Ribbon, { RibbonColors, RibbonSizes } from 'components/Ribbon'
+import Button from 'components/Button'
+
+import formatPrice from 'utils/forma-price'
 import * as S from './styles'
 
 export type GameCardProps = {
+  slug: string
   title: string
   developer: string
   img: string
-  price: string
-  slug: string
-  promotionalPrice?: string
+  price: number
+  promotionalPrice?: number
   favorite?: boolean
   ribbon?: React.ReactNode
-  ribbonSizes?: RibbonSizes
-  ribbonColors?: RibbonColors
+  ribbonColor?: RibbonColors
+  ribbonSize?: RibbonSizes
   onFav?: () => void
 }
 
 const GameCard = ({
+  slug,
   title,
   developer,
   img,
   price,
-  slug,
   promotionalPrice,
   favorite = false,
-  ribbonSizes = 'small',
   ribbon,
-  ribbonColors = 'primary',
+  ribbonColor = 'primary',
+  ribbonSize = 'small',
   onFav
 }: GameCardProps) => (
   <S.Wrapper>
     {!!ribbon && (
-      <Ribbon color={ribbonColors} size={ribbonSizes}>
+      <Ribbon color={ribbonColor} size={ribbonSize}>
         {ribbon}
       </Ribbon>
     )}
@@ -54,16 +57,18 @@ const GameCard = ({
           <S.Developer>{developer}</S.Developer>
         </S.Info>
       </Link>
-      <S.FavButton role="button" onClick={onFav}>
+      <S.FavButton onClick={onFav} role="button">
         {favorite ? (
-          <Favorite aria-label="Remove From WishList" />
+          <Favorite aria-label="Remove from Wishlist" />
         ) : (
           <FavoriteBorder aria-label="Add to Wishlist" />
         )}
       </S.FavButton>
       <S.BuyBox>
-        {!!promotionalPrice && <S.Price isPromotional>{price}</S.Price>}
-        <S.Price>{promotionalPrice || price}</S.Price>
+        {!!promotionalPrice && (
+          <S.Price isPromotional>{formatPrice(price)}</S.Price>
+        )}
+        <S.Price>{formatPrice(promotionalPrice || price)}</S.Price>
         <Button icon={<AddShoppingCart />} size="small" />
       </S.BuyBox>
     </S.Content>
