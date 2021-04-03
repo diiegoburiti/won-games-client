@@ -620,12 +620,12 @@ exports[`<ShowCase /> should render ShowCase 1`] = `
                       <div
                         class="c23"
                       >
-                        R$ 235,00
+                        $235.00
                       </div>
                       <div
                         class="c24"
                       >
-                        R$ 215,00
+                        $215.00
                       </div>
                       <button
                         class="c25"

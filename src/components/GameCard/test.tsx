@@ -1,21 +1,20 @@
 import { fireEvent, screen } from '@testing-library/react'
 import theme from 'styles/theme'
 import { renderWithTheme } from 'utils/tests/helpers'
+
 import GameCard from '.'
 
 const props = {
+  slug: 'population-zero',
   title: 'Population Zero',
   developer: 'Rockstar Games',
-  slug: 'population-zero',
   img: 'https://source.unsplash.com/user/willianjusten/300x140',
-  price: 'R$ 250.00'
+  price: 235
 }
 
 describe('<GameCard />', () => {
   it('should render correctly', () => {
     const { container } = renderWithTheme(<GameCard {...props} />)
-
-    expect(container.firstChild).toBeInTheDocument()
 
     expect(
       screen.getByRole('heading', { name: props.title })
@@ -29,36 +28,36 @@ describe('<GameCard />', () => {
       'src',
       props.img
     )
+
     expect(screen.getByRole('link', { name: props.title })).toHaveAttribute(
       'href',
       `/game/${props.slug}`
     )
 
-    const price = screen.getByText(/250.00/i)
-    expect(price).toBeInTheDocument()
+    expect(screen.getByLabelText(/add to wishlist/i)).toBeInTheDocument()
 
-    expect(screen.getByLabelText(/Add to Wishlist/i)).toBeInTheDocument
     expect(container.firstChild).toMatchSnapshot()
   })
 
   it('should render price in label', () => {
     renderWithTheme(<GameCard {...props} />)
 
-    const price = screen.getByText(/250.00/i)
+    const price = screen.getByText('$235.00')
 
     expect(price).not.toHaveStyle({ textDecoration: 'line-through' })
     expect(price).toHaveStyle({ backgroundColor: theme.colors.secondary })
   })
 
   it('should render a line-through in price when promotional', () => {
-    renderWithTheme(<GameCard {...props} promotionalPrice="R$ 10.00" />)
+    renderWithTheme(<GameCard {...props} promotionalPrice={15} />)
 
-    const promotionalPrice = screen.getByText(/10.00/i)
-    const price = screen.getByText(/250.00/i)
+    expect(screen.getByText('$235.00')).toHaveStyle({
+      textDecoration: 'line-through'
+    })
 
-    expect(promotionalPrice).toBeInTheDocument()
-    expect(price).toHaveStyle({ textDecoration: 'line-through' })
-    expect(promotionalPrice).not.toHaveStyle({ textDecoration: 'line-through' })
+    expect(screen.getByText('$15.00')).not.toHaveStyle({
+      textDecoration: 'line-through'
+    })
   })
 
   it('should render a filled Favorite icon when favorite is true', () => {
@@ -69,31 +68,26 @@ describe('<GameCard />', () => {
 
   it('should call onFav method when favorite is clicked', () => {
     const onFav = jest.fn()
-    renderWithTheme(<GameCard {...props} onFav={onFav} />)
+    renderWithTheme(<GameCard {...props} favorite onFav={onFav} />)
 
     fireEvent.click(screen.getAllByRole('button')[0])
 
     expect(onFav).toBeCalled()
   })
 
-  it('should render ribbon', () => {
+  it('should render Ribbon', () => {
     renderWithTheme(
       <GameCard
         {...props}
         ribbon="My Ribbon"
-        ribbonSizes="small"
-        ribbonColors="primary"
+        ribbonColor="secondary"
+        ribbonSize="small"
       />
     )
-
     const ribbon = screen.getByText(/my ribbon/i)
+
+    expect(ribbon).toHaveStyle({ backgroundColor: '#3CD3C1' })
+    expect(ribbon).toHaveStyle({ height: '2.6rem', fontSize: '1.2rem' })
     expect(ribbon).toBeInTheDocument()
-    expect(ribbon).toHaveStyle({
-      backgroundColor: theme.colors.primary
-    })
-    expect(ribbon).toHaveStyle({
-      height: '2.6rem',
-      fontSize: '1.2rem'
-    })
   })
 })
