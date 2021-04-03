@@ -236,7 +236,7 @@ exports[`<GameInfo /> should render the <GameInfo /> 1`] = `
     class="c2 c3"
     color="secondary"
   >
-    $199.99
+    $199.00
   </div>
   <p
     class="c4"
