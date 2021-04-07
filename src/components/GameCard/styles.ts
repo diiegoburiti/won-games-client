@@ -8,13 +8,12 @@ export const Wrapper = styled.article`
     width: 100%;
     height: 100%;
     background-color: ${theme.colors.white};
-    transition: ${theme.transition.default};
+    transition: transform 0.5s;
     a {
       text-decoration: none;
     }
     &:hover {
-      transform: translateY(-8px);
-      box-shadow: 1px 1px 1px 0px ${theme.colors.darkGray};
+      transform: scale(1.1);
     }
   `}
 `
