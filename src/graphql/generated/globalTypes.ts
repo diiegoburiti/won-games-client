@@ -7,7 +7,7 @@
 // START Enums and Input Objects
 //==============================================================
 
-export enum ENUM_COMPONENTPAGEHIGHLIGHT_ALINGMENT {
+export enum ENUM_COMPONENTPAGEHIGHLIGHT_ALIGNMENT {
   left = "left",
   right = "right",
 }
