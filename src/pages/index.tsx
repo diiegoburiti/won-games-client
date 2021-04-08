@@ -5,7 +5,8 @@ import { QueryHome } from 'graphql/generated/QueryHome'
 
 import Home, { HomeTemplateProps } from 'templates/Home'
 
-import highlightMock from 'components/Highlight/mock'
+//import highlightMock from 'components/Highlight/mock'
+import { bannerMapper, gamesMapper, highlightMapper } from 'utils/mappers'
 
 export default function Index(props: HomeTemplateProps) {
   return <Home {...props} />
@@ -21,53 +22,18 @@ export async function getStaticProps() {
   return {
     props: {
       revalidate: 10,
-      banners: banners.map((banner) => ({
-        img: `http://localhost:1337${banner.image?.url}`,
-        title: banner.title,
-        subtitle: banner.subtitle,
-        buttonLabel: banner.button?.label,
-        buttonLink: banner.button?.link,
-        ...(banner.ribbon && {
-          ribbon: banner.ribbon.text,
-          ribbonColor: banner.ribbon.color,
-          ribbonSize: banner.ribbon.size
-        })
-      })),
+      banners: bannerMapper(banners),
       newGamesTitle: sections?.newGames?.title,
-      newGames: newGames.map((game) => ({
-        title: game.name,
-        slug: game.slug,
-        developer: game.developers[0].name,
-        img: `http://localhost:1337${game.cover?.url}`,
-        price: game.price
-      })),
-      mostPopularHighlight: highlightMock,
+      newGames: gamesMapper(newGames),
       mostPopularGamesTitle: sections?.popularGames?.title,
-      mostPopularGames: sections?.popularGames!.games.map((game) => ({
-        title: game.name,
-        slug: game.slug,
-        developer: game.developers[0].name,
-        img: `http://localhost:1337${game.cover?.url}`,
-        price: game.price
-      })),
+      mostPopularHighlight: highlightMapper(sections?.popularGames?.highlight),
+      mostPopularGames: gamesMapper(sections!.popularGames!.games),
       upcomingGamesTitle: sections?.upcomingGames?.title,
-      upcomingGames: upcomingGames.map((game) => ({
-        title: game.name,
-        slug: game.slug,
-        developer: game.developers[0].name,
-        img: `http://localhost:1337${game.cover?.url}`,
-        price: game.price
-      })),
-      upcomingHighlight: highlightMock,
+      upcomingGames: gamesMapper(upcomingGames),
+      upcomingHighlight: highlightMapper(sections?.upcomingGames?.highlight),
       freeGamesTitle: sections?.freeGames?.title,
-      freeGames: freeGames.map((game) => ({
-        title: game.name,
-        slug: game.slug,
-        developer: game.developers[0].name,
-        img: `http://localhost:1337${game.cover?.url}`,
-        price: game.price
-      })),
-      freeHighlight: highlightMock
+      freeGames: gamesMapper(freeGames),
+      freeHighlight: highlightMapper(sections?.freeGames?.highlight)
     }
   }
 }
