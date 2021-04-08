@@ -10,7 +10,6 @@
 export interface QueryGames_games_cover {
   __typename: "UploadFile";
   url: string;
-  id: string;
 }
 
 export interface QueryGames_games_developers {
@@ -20,8 +19,9 @@ export interface QueryGames_games_developers {
 
 export interface QueryGames_games {
   __typename: "Game";
-  slug: string;
+  id: string;
   name: string;
+  slug: string;
   cover: QueryGames_games_cover | null;
   developers: QueryGames_games_developers[];
   price: number;
