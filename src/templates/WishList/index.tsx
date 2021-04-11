@@ -12,7 +12,7 @@ export type WishListTemplateProps = {
   recommendedGames: GameCardProps[]
   recommendedHighlight: HighlightProps
   games?: GameCardProps[]
-  recommendedTitle?: string
+  recommendedTitle: string
 }
 const WishList = ({
   recommendedGames,
