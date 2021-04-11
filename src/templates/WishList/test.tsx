@@ -10,6 +10,7 @@ import WishList from '.'
 const props = {
   recommendedGames: gamesMock.slice(0, 5),
   recommendedHighlight: HighlightMock,
+  recommendedTitle: 'You may like these games',
   games: gamesMock
 }
 
