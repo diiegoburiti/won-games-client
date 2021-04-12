@@ -7,6 +7,7 @@ import Home, { HomeTemplateProps } from 'templates/Home'
 
 //import highlightMock from 'components/Highlight/mock'
 import { bannerMapper, gamesMapper, highlightMapper } from 'utils/mappers'
+import { dateToday } from 'utils/date-today'
 
 export default function Index(props: HomeTemplateProps) {
   return <Home {...props} />
@@ -14,7 +15,6 @@ export default function Index(props: HomeTemplateProps) {
 
 export async function getStaticProps() {
   const apolloClient = initializeApollo()
-  const dateToday = new Date().toISOString().slice(0, 10)
 
   const {
     data: { banners, newGames, upcomingGames, freeGames, sections }
