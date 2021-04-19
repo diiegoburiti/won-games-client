@@ -10,7 +10,7 @@ let apolloClient: ApolloClient<NormalizedCacheObject>
 
 function createApolloClient() {
   return new ApolloClient({
-    ssrMode: typeof window === undefined,
+    ssrMode: typeof window === 'undefined',
     link: new HttpLink({ uri: process.env.graphqlUrl }),
     cache: new InMemoryCache()
   })
@@ -23,7 +23,7 @@ export function initializeApollo(initialState = {}) {
     apolloClientGlobal.cache.restore(initialState)
   }
 
-  if (typeof window === undefined) return apolloClientGlobal
+  if (typeof window === 'undefined') return apolloClientGlobal
   apolloClient = apolloClient ?? apolloClientGlobal
 
   return apolloClient
