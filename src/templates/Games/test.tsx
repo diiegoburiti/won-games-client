@@ -1,7 +1,9 @@
 import { screen } from '@testing-library/react'
+import { MockedProvider } from '@apollo/client/testing'
+
 import { renderWithTheme } from 'utils/tests/helpers'
-import gamesMock from 'components/GameCardSlider/mock'
 import filterItemsMock from 'components/ExploreSidebar/mock'
+import { fetchMoreMock, gamesMock } from './mocks'
 
 import Games from '.'
 
@@ -19,25 +21,30 @@ jest.mock('components/ExploreSidebar', () => ({
   }
 }))
 
-jest.mock('components/GameCard', () => ({
-  __esModule: true,
-  default: function Mock() {
-    return <div data-testid="Mock GameCard" />
-  }
-}))
-
 describe('<Games />', () => {
-  it('should render the sections', () => {
+  it('should render loading when starting the template', () => {
     renderWithTheme(
-      <Games filterItems={filterItemsMock} games={[gamesMock[0]]} />
+      <MockedProvider mocks={[]}>
+        <Games filterItems={filterItemsMock} />
+      </MockedProvider>
     )
 
-    expect(screen.getByTestId('Mock ExploreSidebar')).toBeInTheDocument()
-    expect(screen.getByTestId('Mock GameCard')).toBeInTheDocument()
-    expect(screen.getByTestId('Mock Base')).toBeInTheDocument()
+    expect(screen.getByText(/loading.../i)).toBeInTheDocument()
+  })
+
+  it('should render sections', async () => {
+    renderWithTheme(
+      <MockedProvider mocks={[gamesMock, fetchMoreMock]}>
+        <Games filterItems={filterItemsMock} />
+      </MockedProvider>
+    )
+
+    expect(screen.getByText(/loading.../i)).toBeInTheDocument()
+
+    expect(await screen.findByTestId('Mock ExploreSidebar')).toBeInTheDocument()
 
     expect(
-      screen.getByRole('button', { name: /show more/i })
+      await screen.findByRole('button', { name: /show more/i })
     ).toBeInTheDocument()
   })
 })
