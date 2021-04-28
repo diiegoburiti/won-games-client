@@ -1,6 +1,4 @@
-//import { parseQueryStringToFilter, parseQueryStringToWhere } from '.'
-
-import { parseQueryStringToWhere } from '.'
+import { parseQueryStringToFilter, parseQueryStringToWhere } from '.'
 
 const filterItems = [
   { name: 'price_lte', type: 'radio' },
@@ -28,7 +26,7 @@ describe('parseQueryStringToWhere', () => {
   })
 })
 
-/* describe('parseQueryStringToFilter', () => {
+describe('parseQueryStringToFilter', () => {
   it('should parse queryString to filter values format', () => {
     const parsedQuery = parseQueryStringToFilter({ queryString, filterItems })
 
@@ -39,4 +37,4 @@ describe('parseQueryStringToWhere', () => {
       sort: 'price:asc'
     })
   })
-}) */
+})
