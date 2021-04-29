@@ -489,7 +489,7 @@ exports[`<ExploreSidebar /> should render the headings and button 1`] = `
         class="c8"
         color="white"
       >
-        System
+        Platforms
       </h2>
       <div
         class="c9"
