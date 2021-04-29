@@ -8,6 +8,7 @@ import CheckBox from 'components/CheckBox'
 import Radio from 'components/Radio'
 
 import * as S from './styles'
+import { ParsedUrlQueryInput } from 'querystring'
 
 export type ItemProps = {
   title: string
@@ -21,9 +22,7 @@ type Field = {
   name: string
 }
 
-type Values = {
-  [field: string]: boolean | string
-}
+type Values = ParsedUrlQueryInput
 
 export type ExploreSidebarProps = {
   items: ItemProps[]
@@ -70,7 +69,9 @@ const ExploreSidebar = ({
                   name={field.name}
                   label={field.label}
                   labelFor={field.name}
-                  isChecked={!!values[field.name]}
+                  isChecked={(values[item.name] as string[])?.includes(
+                    field.name
+                  )}
                   onCheck={(value) => handleChange(field.name, value)}
                 />
               ))}
@@ -84,7 +85,9 @@ const ExploreSidebar = ({
                   name={item.name}
                   label={field.label}
                   labelFor={field.name}
-                  defaultChecked={field.name === values[item.name]}
+                  defaultChecked={
+                    String(field.name) === String(values[item.name])
+                  }
                   onChange={() => handleChange(item.name, field.name)}
                 />
               ))}
