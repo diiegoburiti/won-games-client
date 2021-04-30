@@ -254,6 +254,12 @@ exports[`<ExploreSidebar /> should render the headings and button 1`] = `
   }
 }
 
+@media (min-width:768px) {
+  .c16 {
+    display: none;
+  }
+}
+
 @media (max-width:768px) {
   .c0 .c2 {
     color: #FAFAFA;
