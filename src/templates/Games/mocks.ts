@@ -3,18 +3,18 @@ import { QUERY_GAMES } from 'graphql/queries/games'
 export const gamesMock = {
   request: {
     query: QUERY_GAMES,
-    variables: { limit: 15 }
+    variables: { limit: 15, where: {} }
   },
   result: {
     data: {
       games: [
         {
-          name: 'Seven: The Days Long Gone Demo',
-          slug: 'seven-the-days-long-gone-demo',
-          price: 0,
-          developers: [{ name: 'Fool is Theory' }],
+          name: 'Sample Game',
+          slug: 'sample-game',
+          price: 518.39,
+          developers: [{ name: 'sample developer' }],
           cover: {
-            url: 'seven_the_days_long_gone_demo_81c3253ec9.jpg'
+            url: 'sample-game.jpg'
           },
           __typename: 'Game'
         }
@@ -26,18 +26,18 @@ export const gamesMock = {
 export const fetchMoreMock = {
   request: {
     query: QUERY_GAMES,
-    variables: { limit: 15, start: 15 }
+    variables: { limit: 15, where: {}, start: 1 }
   },
   result: {
     data: {
       games: [
         {
-          name: 'Whateverland',
-          slug: 'whateverland',
-          price: 554.99,
-          developers: [{ name: 'Caligari Games' }],
+          name: 'Fetch More Game',
+          slug: 'fetch-more',
+          price: 518.39,
+          developers: [{ name: 'sample developer' }],
           cover: {
-            url: 'whateverland_a69940e6c9.jpg'
+            url: 'sample-game.jpg'
           },
           __typename: 'Game'
         }
