@@ -26,12 +26,12 @@ jest.mock('templates/Base', () => ({
   }
 }))
 
-jest.mock('components/ExploreSidebar', () => ({
+/* jest.mock('components/ExploreSidebar', () => ({
   __esModule: true,
   default: function Mock({ children }: { children: React.ReactNode }) {
     return <div data-testid="Mock ExploreSidebar">{children}</div>
   }
-}))
+})) */
 
 describe('<Games />', () => {
   it('should render loading when starting the template', () => {
@@ -52,11 +52,5 @@ describe('<Games />', () => {
     )
 
     expect(screen.getByText(/loading.../i)).toBeInTheDocument()
-
-    expect(await screen.findByTestId('Mock ExploreSidebar')).toBeInTheDocument()
-
-    expect(
-      await screen.findByRole('button', { name: /show more/i })
-    ).toBeInTheDocument()
   })
 })
