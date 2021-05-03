@@ -6,7 +6,11 @@ import { QueryHome, QueryHomeVariables } from 'graphql/generated/QueryHome'
 import Home, { HomeTemplateProps } from 'templates/Home'
 
 //import highlightMock from 'components/Highlight/mock'
-import { bannerMapper, gamesMapper, highlightMapper } from 'utils/mappers'
+import {
+  bannerMapper,
+  gamesMapper,
+  highlightMapper
+} from 'utils/mappers/mappers'
 import { dateToday } from 'utils/date-today'
 
 export default function Index(props: HomeTemplateProps) {

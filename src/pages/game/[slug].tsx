@@ -16,7 +16,7 @@ import { QUERY_UPCOMING } from 'graphql/queries/upcoming'
 import Game, { GameTemplateProps } from 'templates/Game'
 
 import { initializeApollo } from 'utils/apollo'
-import { gamesMapper, highlightMapper } from 'utils/mappers'
+import { gamesMapper, highlightMapper } from 'utils/mappers/mappers'
 import { dateToday } from 'utils/date-today'
 
 const apolloClient = initializeApollo()
