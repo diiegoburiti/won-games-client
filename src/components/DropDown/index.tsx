@@ -16,6 +16,7 @@ const DropDown = ({ title, children }: DropDownProps) => {
       <S.Title onClick={handleOpenDropDown}>{title}</S.Title>
 
       <S.Content aria-hidden={!isOpen}>{children}</S.Content>
+      <S.Overlay aria-hidden={!isOpen} onClick={handleOpenDropDown} />
     </S.Wrapper>
   )
 }
