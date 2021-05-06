@@ -1,9 +1,18 @@
+import { useQueryGames } from 'graphql/queries/games'
 import { createContext, useContext, useEffect, useState } from 'react'
 import { getStorageItem } from 'utils/localStorage'
+import { cartMapper } from 'utils/mappers'
 const CART_KEY = 'cartItems'
 
+export type CartItem = {
+  id: string
+  img: string
+  title: string
+  price: string
+}
+
 export type CartContextData = {
-  items: string[]
+  items: CartItem[]
 }
 
 export const CartContextDefaultValues = {
@@ -21,6 +30,13 @@ export type CartProviderProps = {
 export const CartProvider = ({ children }: CartProviderProps) => {
   const [cartItems, setCartItems] = useState<string[]>([])
 
+  const { data } = useQueryGames({
+    skip: !cartItems.length,
+    variables: {
+      where: { id: cartItems }
+    }
+  })
+
   useEffect(() => {
     const data = getStorageItem(CART_KEY)
 
@@ -28,7 +44,11 @@ export const CartProvider = ({ children }: CartProviderProps) => {
   }, [])
 
   return (
-    <CartContext.Provider value={{ items: cartItems }}>
+    <CartContext.Provider
+      value={{
+        items: cartMapper(data?.games)
+      }}
+    >
       {children}
     </CartContext.Provider>
   )
