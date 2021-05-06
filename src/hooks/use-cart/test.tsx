@@ -21,5 +21,7 @@ describe('useCart', () => {
     await waitForNextUpdate()
 
     expect(result.current.items).toStrictEqual(cartItems)
+    expect(result.current.quantity).toEqual(2)
+    expect(result.current.total).toBe('$21.00')
   })
 })
