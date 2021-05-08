@@ -1,12 +1,13 @@
 import { screen } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests/helpers'
+import { render } from 'utils/test-utils'
+
 import cardsMock from 'components/PaymentOptions/mock'
 
 import CardsList from '.'
 
 describe('<CardsList />', () => {
   it('should render the heading', () => {
-    const { container } = renderWithTheme(<CardsList />)
+    const { container } = render(<CardsList />)
 
     expect(
       screen.getByRole('heading', { name: /My cards/i })
@@ -16,7 +17,7 @@ describe('<CardsList />', () => {
   })
 
   it('should render cards', () => {
-    renderWithTheme(<CardsList cards={cardsMock} />)
+    render(<CardsList cards={cardsMock} />)
 
     expect(screen.getByRole('img', { name: /visa/i })).toBeInTheDocument()
     expect(screen.getByRole('img', { name: /mastercard/i })).toBeInTheDocument()

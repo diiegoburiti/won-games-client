@@ -1,7 +1,8 @@
 import { screen } from '@testing-library/react'
 import { MockedProvider } from '@apollo/client/testing'
 
-import { renderWithTheme } from 'utils/tests/helpers'
+import { render } from 'utils/test-utils'
+
 import filterItemsMock from 'components/ExploreSidebar/mock'
 import { fetchMoreMock, gamesMock } from './mocks'
 
@@ -35,7 +36,7 @@ jest.mock('templates/Base', () => ({
 
 describe('<Games />', () => {
   it('should render loading when starting the template', () => {
-    renderWithTheme(
+    render(
       <MockedProvider mocks={[]}>
         <Games filterItems={filterItemsMock} />
       </MockedProvider>
@@ -45,7 +46,7 @@ describe('<Games />', () => {
   })
 
   it('should render sections', async () => {
-    renderWithTheme(
+    render(
       <MockedProvider mocks={[gamesMock, fetchMoreMock]}>
         <Games filterItems={filterItemsMock} />
       </MockedProvider>

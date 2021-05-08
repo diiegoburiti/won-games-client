@@ -1,5 +1,5 @@
 import { screen } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests/helpers'
+import { render } from 'utils/test-utils'
 
 import Empty from '.'
 
@@ -10,7 +10,7 @@ const props = {
 
 describe('<Empty />', () => {
   it('should render correctly', () => {
-    const { container } = renderWithTheme(<Empty {...props} />)
+    const { container } = render(<Empty {...props} />)
 
     expect(
       screen.getByRole('image', {
@@ -28,7 +28,7 @@ describe('<Empty />', () => {
   })
 
   it('should render a Link when props hasLink is passed', () => {
-    renderWithTheme(<Empty {...props} hasLink />)
+    render(<Empty {...props} hasLink />)
 
     expect(
       screen.getByRole('link', { name: /Go Back to Store/i })
@@ -36,7 +36,7 @@ describe('<Empty />', () => {
   })
 
   it('shouldn´t render a Link when props hasLink is not passed', () => {
-    renderWithTheme(<Empty {...props} />)
+    render(<Empty {...props} />)
 
     expect(screen.queryByText(/Go Back to Store/i)).not.toBeInTheDocument()
   })

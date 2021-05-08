@@ -1,5 +1,5 @@
 import { screen } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests/helpers'
+import { render } from 'utils/test-utils'
 
 import Base from '.'
 
@@ -23,7 +23,7 @@ jest.mock('components/Footer', () => {
 
 describe('<Base />', () => {
   it('should render Base', () => {
-    renderWithTheme(
+    render(
       <Base>
         <h1>Children</h1>
       </Base>

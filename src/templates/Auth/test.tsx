@@ -1,11 +1,11 @@
 import { screen } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests/helpers'
+import { render } from 'utils/test-utils'
 
 import Auth from '.'
 
 describe('<Auth />', () => {
   it('should render the logos, children, title, subtitle, footer', () => {
-    renderWithTheme(
+    render(
       <Auth title="Welcome to our page">
         <>
           <span>Enjoy it </span>

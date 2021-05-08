@@ -2,12 +2,13 @@ import { screen, waitFor } from '@testing-library/react'
 import paymentMock from './mock'
 
 import PaymentOptions from '.'
-import { renderWithTheme } from 'utils/tests/helpers'
+import { render } from 'utils/test-utils'
+
 import userEvent from '@testing-library/user-event'
 
 describe('<PaymentOptions />', () => {
   it('should render the heading', () => {
-    const { container } = renderWithTheme(
+    const { container } = render(
       <PaymentOptions cards={paymentMock} handlePayment={jest.fn} />
     )
 
@@ -27,9 +28,7 @@ describe('<PaymentOptions />', () => {
   })
 
   it('should handle select card when clicking on the label', async () => {
-    renderWithTheme(
-      <PaymentOptions cards={paymentMock} handlePayment={jest.fn} />
-    )
+    render(<PaymentOptions cards={paymentMock} handlePayment={jest.fn} />)
 
     userEvent.click(screen.getByRole('radio', { name: /4325/i }))
 
@@ -40,9 +39,7 @@ describe('<PaymentOptions />', () => {
 
   it('should not call handlePayment when button is disabled', async () => {
     const handlePayment = jest.fn()
-    renderWithTheme(
-      <PaymentOptions cards={paymentMock} handlePayment={handlePayment} />
-    )
+    render(<PaymentOptions cards={paymentMock} handlePayment={handlePayment} />)
 
     userEvent.click(screen.getByRole('button', { name: /buy now/i }))
     expect(handlePayment).not.toBeCalled()
@@ -50,9 +47,7 @@ describe('<PaymentOptions />', () => {
 
   it('should not call handlePayment when button is disabled', async () => {
     const handlePayment = jest.fn()
-    renderWithTheme(
-      <PaymentOptions cards={paymentMock} handlePayment={handlePayment} />
-    )
+    render(<PaymentOptions cards={paymentMock} handlePayment={handlePayment} />)
 
     userEvent.click(screen.getByRole('radio', { name: /4325/i }))
     userEvent.click(screen.getByRole('button', { name: /buy now/i }))

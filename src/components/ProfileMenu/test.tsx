@@ -1,12 +1,12 @@
 import { screen } from '@testing-library/react'
 import theme from 'styles/theme'
-import { renderWithTheme } from 'utils/tests/helpers'
+import { render } from 'utils/test-utils'
 
 import ProfileMenu from '.'
 
 describe('<ProfileMenu />', () => {
   it('should render the links', () => {
-    const { container } = renderWithTheme(<ProfileMenu />)
+    const { container } = render(<ProfileMenu />)
 
     expect(
       screen.getByRole('link', { name: /My profile/i })
@@ -18,7 +18,7 @@ describe('<ProfileMenu />', () => {
     expect(container.firstChild).toMatchSnapshot()
   })
   it('should render the links', () => {
-    renderWithTheme(<ProfileMenu activeLink="/profile/me" />)
+    render(<ProfileMenu activeLink="/profile/me" />)
 
     expect(screen.getByRole('link', { name: /My profile/i })).toHaveStyle({
       background: theme.colors.primary,

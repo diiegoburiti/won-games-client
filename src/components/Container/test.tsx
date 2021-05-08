@@ -1,11 +1,11 @@
 import theme from 'styles/theme'
-import { renderWithTheme } from 'utils/tests/helpers'
+import { render } from 'utils/test-utils'
 
 import { Container } from '.'
 
 describe('<Container />', () => {
   it('should render correctly', () => {
-    const { container } = renderWithTheme(<Container />)
+    const { container } = render(<Container />)
 
     expect(container.firstChild).toHaveStyleRule(
       'max-width',

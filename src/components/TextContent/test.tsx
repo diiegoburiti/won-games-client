@@ -1,6 +1,6 @@
 import { screen } from '@testing-library/react'
 import theme from 'styles/theme'
-import { renderWithTheme } from 'utils/tests/helpers'
+import { render } from 'utils/test-utils'
 
 import TextContent from '.'
 
@@ -11,7 +11,7 @@ const props = {
 
 describe('<TextContent />', () => {
   it('should render the title and content', () => {
-    const { container } = renderWithTheme(<TextContent {...props} />)
+    const { container } = render(<TextContent {...props} />)
 
     expect(screen.getByRole('heading', { name: /gta v/i })).toBeInTheDocument()
 
@@ -23,7 +23,7 @@ describe('<TextContent />', () => {
   })
 
   it('should render without title', () => {
-    renderWithTheme(<TextContent content={props.content} />)
+    render(<TextContent content={props.content} />)
 
     expect(
       screen.queryByRole('heading', { name: /gta v/i })
@@ -31,7 +31,7 @@ describe('<TextContent />', () => {
   })
 
   it('should render with correctly background', () => {
-    renderWithTheme(<TextContent {...props} />)
+    render(<TextContent {...props} />)
 
     const wrapper = screen.getByRole('heading', { name: /gta v/i })
       .parentElement

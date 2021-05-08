@@ -1,5 +1,5 @@
 import { screen } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests/helpers'
+import { render } from 'utils/test-utils'
 
 import GameInfo from '.'
 
@@ -11,7 +11,7 @@ const props = {
 
 describe('<GameInfo />', () => {
   it('should render the <GameInfo />', () => {
-    const { container } = renderWithTheme(<GameInfo {...props} />)
+    const { container } = render(<GameInfo {...props} />)
 
     expect(
       screen.getByRole('heading', { name: /My game title/i })
@@ -23,7 +23,7 @@ describe('<GameInfo />', () => {
   })
 
   it('should render the buttons', () => {
-    renderWithTheme(<GameInfo {...props} />)
+    render(<GameInfo {...props} />)
 
     expect(
       screen.getByRole('button', { name: /Add to card/i })
@@ -34,7 +34,7 @@ describe('<GameInfo />', () => {
   })
 
   it('should render Free is prince is equal 0', () => {
-    renderWithTheme(<GameInfo {...props} price={0} />)
+    render(<GameInfo {...props} price={0} />)
 
     expect(screen.getByText(/Free/i)).toBeInTheDocument()
   })

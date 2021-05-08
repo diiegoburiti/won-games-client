@@ -1,6 +1,6 @@
 import { screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { renderWithTheme } from 'utils/tests/helpers'
+import { render } from 'utils/test-utils'
 
 import UserDropDown from '.'
 
@@ -10,9 +10,7 @@ const props = {
 
 describe('<UserDropDown />', () => {
   it('should render the username', () => {
-    const { container } = renderWithTheme(
-      <UserDropDown userName={props.userName} />
-    )
+    const { container } = render(<UserDropDown userName={props.userName} />)
 
     expect(screen.getByText(/Diego Buriti/i)).toBeInTheDocument()
 
@@ -20,7 +18,7 @@ describe('<UserDropDown />', () => {
   })
 
   it('should render the menu', () => {
-    renderWithTheme(<UserDropDown userName={props.userName} />)
+    render(<UserDropDown userName={props.userName} />)
 
     userEvent.click(screen.getByText(`${props.userName}`))
 

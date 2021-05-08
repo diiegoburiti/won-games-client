@@ -1,13 +1,13 @@
 import { screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import theme from 'styles/theme'
-import { renderWithTheme } from 'utils/tests/helpers'
+import { render } from 'utils/test-utils'
 
 import CheckBox from '.'
 
 describe('<CheckBox />', () => {
   it('should render with label', () => {
-    renderWithTheme(<CheckBox label="checkbox label" labelFor="check" />)
+    render(<CheckBox label="checkbox label" labelFor="check" />)
 
     expect(screen.getByRole('checkbox')).toBeInTheDocument()
     expect(screen.getByLabelText(/checkbox label/i)).toBeInTheDocument()
@@ -15,13 +15,13 @@ describe('<CheckBox />', () => {
   })
 
   it('should render without label', () => {
-    renderWithTheme(<CheckBox />)
+    render(<CheckBox />)
 
     expect(screen.queryByLabelText('checkbox')).not.toBeInTheDocument()
   })
 
   it('should render with black label', () => {
-    renderWithTheme(
+    render(
       <CheckBox label="checkbox label" labelFor="check" labelColor="black" />
     )
 
@@ -33,7 +33,7 @@ describe('<CheckBox />', () => {
   it('should dispatch onCheck when status change', async () => {
     const onCheck = jest.fn()
 
-    renderWithTheme(<CheckBox label="checkbox" onCheck={onCheck} />)
+    render(<CheckBox label="checkbox" onCheck={onCheck} />)
     expect(onCheck).not.toHaveBeenCalled()
 
     userEvent.click(screen.getByRole('checkbox'))
@@ -45,7 +45,7 @@ describe('<CheckBox />', () => {
   it('should render with Checkbox checked when isChecked is passed', async () => {
     const onCheck = jest.fn()
 
-    renderWithTheme(<CheckBox label="checkbox" onCheck={onCheck} isChecked />)
+    render(<CheckBox label="checkbox" onCheck={onCheck} isChecked />)
     //expect(onCheck).not.toHaveBeenCalled()
 
     userEvent.click(screen.getByRole('checkbox'))
@@ -55,7 +55,7 @@ describe('<CheckBox />', () => {
   })
 
   it('should be accessible with tab', () => {
-    renderWithTheme(<CheckBox label="checkbox" labelFor="checkbox" />)
+    render(<CheckBox label="checkbox" labelFor="checkbox" />)
 
     expect(document.body).toHaveFocus()
 
