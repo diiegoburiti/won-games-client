@@ -1,16 +1,20 @@
 import { screen } from '@testing-library/react'
 import { render } from 'utils/test-utils'
 
-import mockItems from './mock'
-
 import CartList from '.'
 import theme from 'styles/theme'
+import { CartContextDefaultValues } from 'hooks/use-cart'
+import items from './mock'
 
 describe('<CartList />', () => {
   it('should render the heading', () => {
-    const { container } = render(
-      <CartList items={mockItems} total="R$ 330,00" />
-    )
+    const cartProviderProps = {
+      ...CartContextDefaultValues,
+      items,
+      total: 'R$ 330,00'
+    }
+
+    const { container } = render(<CartList />, { cartProviderProps })
 
     expect(screen.getAllByRole('heading')).toHaveLength(2)
 
@@ -22,7 +26,12 @@ describe('<CartList />', () => {
   })
 
   it('should render the button', () => {
-    render(<CartList items={mockItems} total="R$ 330,00" hasButton />)
+    const cartProviderProps = {
+      ...CartContextDefaultValues,
+      items
+    }
+
+    render(<CartList hasButton />, { cartProviderProps })
 
     expect(screen.getByText(/buy now/i)).toBeInTheDocument()
   })
