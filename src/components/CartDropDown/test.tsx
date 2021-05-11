@@ -4,21 +4,28 @@ import { render } from 'utils/test-utils'
 import items from 'components/CartList/mock'
 
 import CartDropDown from '.'
+import { CartContextDefaultValues } from 'hooks/use-cart'
 
 describe('<CartDrowDown />', () => {
-  it('should render the content correctly', () => {
-    const { container } = render(
-      <CartDropDown total="R$ 300,00" items={items} />
-    )
+  beforeEach(() => {
+    const cartProviderProps = {
+      ...CartContextDefaultValues,
+      items,
+      quantity: items.length,
+      total: 'R$ 100,00'
+    }
 
-    expect(screen.getByLabelText(/shopping cart/i)).toBeInTheDocument()
-
-    expect(container.firstChild).toMatchSnapshot()
+    render(<CartDropDown />, { cartProviderProps })
   })
-  it('should render DropDown content with cart items and total', () => {
-    render(<CartDropDown items={items} total="R$ 300,00" />)
 
-    expect(screen.getByText('R$ 300,00')).toBeInTheDocument()
+  it('should render the content correctly', () => {
+    expect(screen.getByLabelText(/shopping cart/i)).toBeInTheDocument()
+  })
+
+  it('should render DropDown content with cart items and total', () => {
+    render(<CartDropDown />)
+
+    expect(screen.getByText('R$ 100,00')).toBeInTheDocument()
     expect(screen.getByText(`${items[0].title}`)).toBeInTheDocument()
   })
 })

@@ -1,15 +1,11 @@
 import { Story, Meta } from '@storybook/react/types-6-0'
-import CartDropDown, { CartDropDownProps } from '.'
+import CartDropDown from '.'
 
-import mockItems from 'components/CartList/mock'
+import items from 'components/CartList/mock'
 
 export default {
   title: 'CartDropDown',
   component: CartDropDown,
-  args: {
-    items: mockItems,
-    total: 'R$ 300,00'
-  },
   parameters: {
     backgrounds: {
       default: 'won-dark'
@@ -17,13 +13,21 @@ export default {
   }
 } as Meta
 
-export const Default: Story<CartDropDownProps> = (args) => (
+export const Default: Story = (args) => (
   <div style={{ maxWidth: '98%', display: 'flex', justifyContent: 'flex-end' }}>
     <CartDropDown {...args} />
   </div>
 )
 
-export const Empty: Story<CartDropDownProps> = () => (
+Default.args = {
+  cartContextValue: {
+    items,
+    quantity: items.length,
+    total: 'R$ 100,00'
+  }
+}
+
+export const Empty: Story = () => (
   <div style={{ maxWidth: '98%', display: 'flex', justifyContent: 'flex-end' }}>
     <CartDropDown />
   </div>
