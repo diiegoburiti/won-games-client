@@ -1,10 +1,10 @@
 import Base from 'templates/Base'
 
 import { BannerProps } from 'components/Banner'
-import BannerSlider from 'components/BannerSlider'
-import { Container } from 'components/Container'
 import { GameCardProps } from 'components/GameCard'
 import { HighlightProps } from 'components/Highlight'
+import { Container } from 'components/Container'
+import BannerSlider from 'components/BannerSlider'
 import ShowCase from 'components/ShowCase'
 
 import * as S from './styles'
@@ -26,13 +26,13 @@ export type HomeTemplateProps = {
 
 const Home = ({
   banners,
-  newGames,
   newGamesTitle,
-  mostPopularHighlight,
+  newGames,
   mostPopularGamesTitle,
+  mostPopularHighlight,
   mostPopularGames,
-  upcomingGames,
   upcomingGamesTitle,
+  upcomingGames,
   upcomingHighlight,
   freeGamesTitle,
   freeGames,
@@ -49,36 +49,23 @@ const Home = ({
       <ShowCase title={newGamesTitle} gamesCard={newGames} color="black" />
     </S.SectionNews>
 
-    <Container>
-      <S.SectionMostPopular>
-        <ShowCase
-          title={mostPopularGamesTitle}
-          highlight={mostPopularHighlight}
-          gamesCard={mostPopularGames}
-        />
-      </S.SectionMostPopular>
+    <ShowCase
+      title={mostPopularGamesTitle}
+      highlight={mostPopularHighlight}
+      gamesCard={mostPopularGames}
+    />
 
-      <S.SectionUpcoming>
-        <ShowCase
-          title={upcomingGamesTitle}
-          gamesCard={upcomingGames}
-          highlight={upcomingHighlight}
-        />
+    <ShowCase
+      title={upcomingGamesTitle}
+      gamesCard={upcomingGames}
+      highlight={upcomingHighlight}
+    />
 
-        {/* <ShowCase
-          gamesCard={upcommingMoreGames}
-          highlight={upcomingHighlight}
-        /> */}
-      </S.SectionUpcoming>
-
-      <S.SectionFreeGames>
-        <ShowCase
-          title={freeGamesTitle}
-          highlight={freeHighlight}
-          gamesCard={freeGames}
-        />
-      </S.SectionFreeGames>
-    </Container>
+    <ShowCase
+      title={freeGamesTitle}
+      highlight={freeHighlight}
+      gamesCard={freeGames}
+    />
   </Base>
 )
 
