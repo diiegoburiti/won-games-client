@@ -4,6 +4,7 @@ import { render } from 'utils/test-utils'
 import GameInfo from '.'
 
 const props = {
+  id: '1',
   title: 'My game title',
   description: 'Game description',
   price: 199
@@ -26,7 +27,7 @@ describe('<GameInfo />', () => {
     render(<GameInfo {...props} />)
 
     expect(
-      screen.getByRole('button', { name: /Add to card/i })
+      screen.getByRole('button', { name: /add to cart/i })
     ).toBeInTheDocument()
     expect(
       screen.getByRole('button', { name: /wishlist/i })
