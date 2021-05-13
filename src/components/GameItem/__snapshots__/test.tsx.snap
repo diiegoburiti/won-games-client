@@ -11,6 +11,7 @@ exports[`<GameItem /> should render GameItem correctly 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  width: 100%;
 }
 
 .c2 {
@@ -40,6 +41,7 @@ exports[`<GameItem /> should render GameItem correctly 1`] = `
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
   align-items: flex-start;
+  width: 100%;
 }
 
 .c4 {
@@ -50,13 +52,29 @@ exports[`<GameItem /> should render GameItem correctly 1`] = `
   margin-bottom: 0.8rem;
 }
 
-.c5 {
+.c6 {
   color: #FAFAFA;
   padding: 0.2rem 0.8rem;
   background-color: #3CD3C1;
   border-radius: 0.4rem;
   font-size: 1.4rem;
   font-weight: 600;
+}
+
+.c5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  width: 100%;
 }
 
 @media (min-width:768px) {
@@ -108,7 +126,11 @@ exports[`<GameItem /> should render GameItem correctly 1`] = `
       <div
         class="c5"
       >
-        R$ 215,00
+        <div
+          class="c6"
+        >
+          R$ 215,00
+        </div>
       </div>
     </div>
   </div>
