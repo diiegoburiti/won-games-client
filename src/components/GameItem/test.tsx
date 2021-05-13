@@ -1,9 +1,10 @@
-import { screen } from '@testing-library/react'
-import { render } from 'utils/test-utils'
+import { CartContextDefaultValues } from 'hooks/use-cart'
+import { render, screen } from 'utils/test-utils'
 
 import GameItem from '.'
 
 const props = {
+  id: '1',
   img: 'https://source.unsplash.com/user/willianjusten/151x70',
   title: 'Red Dead Redemption 2',
   price: 'R$ 215,00'
@@ -27,6 +28,19 @@ describe('<GameItem />', () => {
     expect(container.firstChild).toMatchSnapshot()
   })
 
+  it('should render remove if the item is inside cart and call remove', () => {
+    const cartProviderProps = {
+      ...CartContextDefaultValues,
+      isInCart: () => true,
+      removeFromCart: jest.fn()
+    }
+
+    render(<GameItem {...props} />, { cartProviderProps })
+
+    //const removeLink = screen.getByText(/remove/i)
+    expect(screen.getByText(/remove/i)).toBeInTheDocument()
+  })
+
   it('should render the item with download link', () => {
     const downloadLink = 'https://link.com'
 
@@ -37,7 +51,7 @@ describe('<GameItem />', () => {
     ).toHaveAttribute('href', downloadLink)
   })
 
-  it('should render the item with download link', () => {
+  it('should render the payment info', () => {
     const paymentInfo = {
       flag: 'mastercard',
       img: '/img/master-card.png',

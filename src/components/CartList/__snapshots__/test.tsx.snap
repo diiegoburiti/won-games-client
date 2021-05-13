@@ -11,6 +11,7 @@ exports[`<CartList /> should render the heading 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  width: 100%;
 }
 
 .c4 {
@@ -40,6 +41,7 @@ exports[`<CartList /> should render the heading 1`] = `
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
   align-items: flex-start;
+  width: 100%;
 }
 
 .c6 {
@@ -50,13 +52,29 @@ exports[`<CartList /> should render the heading 1`] = `
   margin-bottom: 0.8rem;
 }
 
-.c7 {
+.c8 {
   color: #FAFAFA;
   padding: 0.2rem 0.8rem;
   background-color: #3CD3C1;
   border-radius: 0.4rem;
   font-size: 1.4rem;
   font-weight: 600;
+}
+
+.c7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .c0 {
@@ -73,7 +91,7 @@ exports[`<CartList /> should render the heading 1`] = `
   align-self: start;
 }
 
-.c8 {
+.c9 {
   background: #eee;
   color: #030517;
   font-weight: 600;
@@ -93,7 +111,7 @@ exports[`<CartList /> should render the heading 1`] = `
   justify-content: space-between;
 }
 
-.c9 {
+.c10 {
   color: #F231A5;
 }
 
@@ -127,7 +145,7 @@ exports[`<CartList /> should render the heading 1`] = `
 }
 
 @media (min-width:768px) {
-  .c8 {
+  .c9 {
     font-size: 1.6rem;
     padding: 2.4rem;
   }
@@ -164,7 +182,11 @@ exports[`<CartList /> should render the heading 1`] = `
           <div
             class="c7"
           >
-            R$ 215,00
+            <div
+              class="c8"
+            >
+              R$ 215,00
+            </div>
           </div>
         </div>
       </div>
@@ -194,20 +216,24 @@ exports[`<CartList /> should render the heading 1`] = `
           <div
             class="c7"
           >
-            R$ 215,00
+            <div
+              class="c8"
+            >
+              R$ 215,00
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
   <div
-    class="c8"
+    class="c9"
   >
     <span>
       Total:
     </span>
     <span
-      class="c9"
+      class="c10"
     >
       R$ 330,00
     </span>
