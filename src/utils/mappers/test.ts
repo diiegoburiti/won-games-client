@@ -62,6 +62,7 @@ describe('gamesMapper()', () => {
     } as QueryGames_games
     expect(gamesMapper([game])).toStrictEqual([
       {
+        id: '1',
         title: 'game',
         slug: 'game',
         developer: 'rockstart',
