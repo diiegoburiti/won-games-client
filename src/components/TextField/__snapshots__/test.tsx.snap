@@ -48,6 +48,12 @@ exports[`<TextField /> should display error message 1`] = `
   outline: none;
 }
 
+.c8:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 2.4rem #EAEAEA inset;
+  -webkit-filter: none;
+  filter: none;
+}
+
 .c2 {
   font-size: 1.4rem;
   color: #030517;
@@ -159,6 +165,12 @@ exports[`<TextField /> should render with label 1`] = `
   background-color: transparent;
   border: 0;
   outline: none;
+}
+
+.c2:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 2.4rem #EAEAEA inset;
+  -webkit-filter: none;
+  filter: none;
 }
 
 .c0 {

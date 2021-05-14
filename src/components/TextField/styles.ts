@@ -67,6 +67,11 @@ export const Input = styled.input<IconPositionProps>`
     background-color: transparent;
     border: 0;
     outline: none;
+
+    &:-webkit-autofill {
+      -webkit-box-shadow: 0 0 0 ${theme.spacings.small} ${theme.colors.lightGray} inset;
+      filter: none;
+    }
   `}
 `
 export const Label = styled.label`
