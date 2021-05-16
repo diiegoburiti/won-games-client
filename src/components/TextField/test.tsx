@@ -29,10 +29,10 @@ describe('<TextField />', () => {
   })
 
   it('changes it`s values when typing', async () => {
-    const onInput = jest.fn()
+    const onInputChange = jest.fn()
     render(
       <TextField
-        onInput={onInput}
+        onInputChange={onInputChange}
         label="TextField"
         name="TextField"
         id="TextField"
@@ -45,9 +45,9 @@ describe('<TextField />', () => {
 
     await waitFor(() => {
       expect(input).toHaveValue(text)
-      expect(onInput).toHaveBeenCalledTimes(text.length)
+      expect(onInputChange).toHaveBeenCalledTimes(text.length)
     })
-    expect(onInput).toHaveBeenCalledWith(text)
+    expect(onInputChange).toHaveBeenCalledWith(text)
     //expect(screen.getByPlaceholderText(placehoolder)).toBeInTheDocument()
   })
 
@@ -76,10 +76,10 @@ describe('<TextField />', () => {
   })
 
   it('Does not changes value when disabled is passed', async () => {
-    const onInput = jest.fn()
+    const onInputChange = jest.fn()
     render(
       <TextField
-        onInput={onInput}
+        onInputChange={onInputChange}
         label="TextField"
         name="TextField"
         id="TextField"
@@ -93,9 +93,9 @@ describe('<TextField />', () => {
 
     await waitFor(() => {
       expect(input).not.toHaveValue(text)
-      expect(onInput).not.toHaveBeenCalledTimes(text.length)
+      expect(onInputChange).not.toHaveBeenCalledTimes(text.length)
     })
-    expect(onInput).not.toHaveBeenCalledWith(text)
+    expect(onInputChange).not.toHaveBeenCalledWith(text)
   })
 
   it('does not be accessible by tab when disabled is passed', () => {
