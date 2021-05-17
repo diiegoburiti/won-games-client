@@ -2,6 +2,7 @@ import NextNprogress from 'nextjs-progressbar'
 import Head from 'next/head'
 import { AppProps } from 'next/app'
 
+import { Provider as AuthProvider } from 'next-auth/client'
 import { ApolloProvider } from '@apollo/client'
 import { useApollo } from 'utils/apollo'
 
@@ -14,30 +15,32 @@ function App({ Component, pageProps }: AppProps) {
   const client = useApollo(pageProps.initialApolloState)
 
   return (
-    <ApolloProvider client={client}>
-      <ThemeProvider theme={theme}>
-        <CartProvider>
-          <Head>
-            <title>Won Games</title>
-            <link rel="shortcut icon" href="/img/icon-512.png" />
-            <link rel="apple-touch-icon" href="/img/icon-512.png" />
-            <link rel="manifest" href="/manifest.json" />
-            <meta
-              name="description"
-              content="A simple project starter to work with TypeScript, React, NextJS and Styled Components"
+    <AuthProvider session={pageProps.session}>
+      <ApolloProvider client={client}>
+        <ThemeProvider theme={theme}>
+          <CartProvider>
+            <Head>
+              <title>Won Games</title>
+              <link rel="shortcut icon" href="/img/icon-512.png" />
+              <link rel="apple-touch-icon" href="/img/icon-512.png" />
+              <link rel="manifest" href="/manifest.json" />
+              <meta
+                name="description"
+                content="A simple project starter to work with TypeScript, React, NextJS and Styled Components"
+              />
+            </Head>
+            <GlobalStyles />
+            <Component {...pageProps} />
+            <NextNprogress
+              color="#F231A5"
+              startPosition={0.3}
+              stopDelayMs={200}
+              height={4}
             />
-          </Head>
-          <GlobalStyles />
-          <Component {...pageProps} />
-          <NextNprogress
-            color="#F231A5"
-            startPosition={0.3}
-            stopDelayMs={200}
-            height={4}
-          />
-        </CartProvider>
-      </ThemeProvider>
-    </ApolloProvider>
+          </CartProvider>
+        </ThemeProvider>
+      </ApolloProvider>
+    </AuthProvider>
   )
 }
 
