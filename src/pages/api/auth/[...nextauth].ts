@@ -12,13 +12,10 @@ const options = {
       name: 'Sign-in',
       credentials: {},
       async authorize({ email, password }) {
-        const response = await fetch(
-          `${process.env.NEXT_PUBLIC_API_URL}/auth/local`,
-          {
-            method: 'POST',
-            body: new URLSearchParams({ identifier: email, password })
-          }
-        )
+        const response = await fetch(`${process.env.publiclUrl}/auth/local`, {
+          method: 'POST',
+          body: new URLSearchParams({ identifier: email, password })
+        })
 
         const data = await response.json()
 
