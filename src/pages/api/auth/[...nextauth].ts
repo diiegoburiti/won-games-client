@@ -41,7 +41,7 @@ const options = {
         token.username = user.username
         token.jwt = user.jwt
       }
-      return Promise.resolve(user)
+      return Promise.resolve(token)
     }
   }
 }
