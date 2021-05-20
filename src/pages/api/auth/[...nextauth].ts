@@ -38,7 +38,7 @@ const options = {
       if (user) {
         token.id = user.id
         token.email = user.email
-        token.username = user.username
+        token.name = user.username
         token.jwt = user.jwt
       }
       return Promise.resolve(token)
