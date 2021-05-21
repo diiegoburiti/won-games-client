@@ -96,19 +96,6 @@ exports[`<FormSignIn /> should render form 1`] = `
   background: linear-gradient(180deg,#e35565 0%,#d958a6 50%);
 }
 
-.c6 {
-  display: block;
-  font-size: 1.4rem;
-  color: #030517;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  text-align: right;
-}
-
-.c6:hover {
-  color: #0f1971;
-}
-
 .c0 .c1 {
   margin: 0.8rem 0;
 }
@@ -136,6 +123,19 @@ exports[`<FormSignIn /> should render form 1`] = `
 .c9 a:hover {
   color: #29b3a3;
   border-bottom: 0.1rem solid #29b3a3;
+}
+
+.c6 {
+  display: block;
+  font-size: 1.4rem;
+  color: #030517;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-align: right;
+}
+
+.c6:hover {
+  color: #0f1971;
 }
 
 <body>
@@ -231,9 +231,12 @@ exports[`<FormSignIn /> should render form 1`] = `
         </a>
         <button
           class="c7 c8"
+          type="submit"
         >
           <span>
-            Sign In Now
+            <span>
+              Sign in now
+            </span>
           </span>
         </button>
         <div
