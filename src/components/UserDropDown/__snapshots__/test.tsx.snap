@@ -113,6 +113,7 @@ exports[`<UserDropDown /> should render the username 1`] = `
   padding: 1.6rem 2.4rem;
   -webkit-transition: background,color,0.3s ease-in-out;
   transition: background,color,0.3s ease-in-out;
+  cursor: pointer;
 }
 
 .c7:hover {
@@ -231,7 +232,7 @@ exports[`<UserDropDown /> should render the username 1`] = `
       </a>
       <a
         class="c7"
-        href="/logout"
+        role="button"
         title="Sign out"
       >
         <svg

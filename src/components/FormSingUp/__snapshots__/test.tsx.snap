@@ -159,8 +159,8 @@ exports[`<FormSingUp /> should render form Sign up correctly 1`] = `
         </div>
         <input
           class="c5"
-          name="name"
-          placeholder="name"
+          name="username"
+          placeholder="Username"
           type="text"
           value=""
         />
@@ -287,9 +287,12 @@ exports[`<FormSingUp /> should render form Sign up correctly 1`] = `
     </section>
     <button
       class="c6 c7"
+      type="submit"
     >
       <span>
-        Sign Up Now
+        <span>
+          Sign up now
+        </span>
       </span>
     </button>
     <div
