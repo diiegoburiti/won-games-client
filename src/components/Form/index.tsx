@@ -33,3 +33,10 @@ export const FormLink = styled.div`
     }
   `}
 `
+
+export const FormLoading = styled.img.attrs(() => ({
+  src: '/img/dots.svg',
+  alt: 'Waiting...'
+}))`
+  width: 4rem;
+`
