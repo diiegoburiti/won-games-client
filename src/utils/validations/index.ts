@@ -13,7 +13,7 @@ const fieldsValidations = {
     .messages({ 'any.only': 'confirm password does not match with password' })
 }
 
-type FieldErrors = {
+export type FieldErrors = {
   [key: string]: string
 }
 
