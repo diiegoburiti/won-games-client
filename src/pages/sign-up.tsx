@@ -1,4 +1,4 @@
-import FormSignUp from 'components/FormSingUp'
+import FormSignUp from 'components/FormSignUp'
 
 import Auth from 'templates/Auth'
 
