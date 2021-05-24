@@ -144,7 +144,7 @@ exports[`<FormSignIn /> should render form 1`] = `
       class="c0"
     >
       <form
-        aria-label="sing-in form"
+        aria-label="sign-in form"
       >
         <section
           class="c1 "
@@ -175,7 +175,7 @@ exports[`<FormSignIn /> should render form 1`] = `
             <input
               class="c5"
               name="email"
-              placeholder="email"
+              placeholder="Email"
               type="email"
               value=""
             />
@@ -217,7 +217,7 @@ exports[`<FormSignIn /> should render form 1`] = `
             <input
               class="c5"
               name="password"
-              placeholder="password"
+              placeholder="Password"
               type="password"
               value=""
             />
@@ -243,6 +243,7 @@ exports[`<FormSignIn /> should render form 1`] = `
           class="c9"
         >
           Don’t have an account?
+           
           <a
             href="/sign-up"
           >

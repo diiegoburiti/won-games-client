@@ -1,25 +1,39 @@
-import Link from 'next/link'
-import { signIn } from 'next-auth/client'
 import { useState } from 'react'
+import { signIn } from 'next-auth/client'
+import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { Email, Lock } from '@styled-icons/material-outlined'
-import TextField from 'components/TextField'
+import { Email, Lock, ErrorOutline } from '@styled-icons/material-outlined'
+import { FormLink, FormWrapper, FormLoading, FormError } from 'components/Form'
 import Button from 'components/Button'
-import { FormLink, FormWrapper, FormLoading } from 'components/Form'
+import TextField from 'components/TextField'
+import { FieldErrors, signInValidate } from 'utils/validations'
+
 import * as S from './styles'
 
 const FormSignIn = () => {
+  const [formError, setFormError] = useState('')
+  const [fieldError, setFieldError] = useState<FieldErrors>({})
+  const [values, setValues] = useState({ email: '', password: '' })
+  const [loading, setLoading] = useState(false)
   const { push } = useRouter()
-  const [values, setValues] = useState({})
-  const [loading, setLoading] = useState<boolean>(false)
 
-  function handleInputChange(field: string, value: string) {
-    setValues((oldState) => ({ ...oldState, [field]: value }))
+  const handleInput = (field: string, value: string) => {
+    setValues((s) => ({ ...s, [field]: value }))
   }
 
-  async function handleSubmit(event: React.FormEvent) {
+  const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault()
     setLoading(true)
+
+    const errors = signInValidate(values)
+
+    if (Object.keys(errors).length) {
+      setFieldError(errors)
+      setLoading(false)
+      return
+    }
+
+    setFieldError({})
 
     const result = await signIn('credentials', {
       ...values,
@@ -27,31 +41,38 @@ const FormSignIn = () => {
       callbackUrl: '/'
     })
 
-    if (result.url) {
+    if (result?.url) {
       return push(result?.url)
     }
 
     setLoading(false)
-    console.error('email ou senha invalido')
+
+    setFormError('username or password is invalid!')
   }
 
   return (
     <FormWrapper>
-      <form aria-label="sing-in form" onSubmit={handleSubmit}>
+      {!!formError && (
+        <FormError>
+          <ErrorOutline /> {formError}
+        </FormError>
+      )}
+      <form aria-label="sign-in form" onSubmit={handleSubmit}>
         <TextField
           name="email"
-          placeholder="email"
+          placeholder="Email"
           type="email"
+          errorMessage={fieldError?.email}
+          onInputChange={(v) => handleInput('email', v)}
           icon={<Email />}
-          onInputChange={(value) => handleInputChange('email', value)}
         />
-
         <TextField
           name="password"
-          placeholder="password"
+          placeholder="Password"
           type="password"
+          errorMessage={fieldError?.password}
+          onInputChange={(v) => handleInput('password', v)}
           icon={<Lock />}
-          onInputChange={(value) => handleInputChange('password', value)}
         />
         <S.ForgotPassword href="#">Forgot your password?</S.ForgotPassword>
 
@@ -60,7 +81,7 @@ const FormSignIn = () => {
         </Button>
 
         <FormLink>
-          Don’t have an account?
+          Don’t have an account?{' '}
           <Link href="/sign-up">
             <a>Sign up</a>
           </Link>
