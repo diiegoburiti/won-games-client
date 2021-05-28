@@ -225,7 +225,7 @@ exports[`<FormSignIn /> should render form 1`] = `
         </section>
         <a
           class="c6"
-          href="#"
+          href="/forgot-password"
         >
           Forgot your password?
         </a>
