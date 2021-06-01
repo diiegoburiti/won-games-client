@@ -13,13 +13,10 @@ describe('<FormProfile />', () => {
 
     expect(screen.getByRole('textbox', { name: /name/i })).toBeInTheDocument()
     expect(screen.getByRole('textbox', { name: /E-mail/i })).toBeInTheDocument()
-    expect(screen.getByRole('button', { name: /save/i })).toBeInTheDocument()
-
     expect(
-      screen.getByPlaceholderText('Type your password')
+      screen.getByRole('link', { name: /reset password/i })
     ).toBeInTheDocument()
-
-    expect(screen.getByPlaceholderText('New password')).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /save/i })).toBeInTheDocument()
 
     expect(container.firstChild).toMatchSnapshot()
   })

@@ -25,6 +25,10 @@ exports[`<FormProfile /> should render the profile box 1`] = `
 
 }
 
+@media (min-width:768px) {
+
+}
+
 <h2
   class="c0"
   color="black"
