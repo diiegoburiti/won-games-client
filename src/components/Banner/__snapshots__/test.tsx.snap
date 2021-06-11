@@ -27,6 +27,10 @@ exports[`<Banner /> should render the correctly 1`] = `
   padding: 0.8rem 4.0rem;
 }
 
+.c5:focus {
+  outline: 1px dashed;
+}
+
 .c5:hover {
   background: linear-gradient(180deg,#e35565 0%,#d958a6 50%);
 }
@@ -149,4 +153,4 @@ exports[`<Banner /> should render the correctly 1`] = `
     </a>
   </div>
 </main>
-`;
+`

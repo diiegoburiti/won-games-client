@@ -235,6 +235,10 @@ exports[`<ExploreSidebar /> should render the headings and button 1`] = `
   width: 100%;
 }
 
+.c17:focus {
+  outline: 1px dashed;
+}
+
 .c17:hover {
   background: linear-gradient(180deg,#e35565 0%,#d958a6 50%);
 }

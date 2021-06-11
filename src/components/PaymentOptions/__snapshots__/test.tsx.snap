@@ -36,6 +36,10 @@ exports[`<PaymentOptions /> should render the heading 1`] = `
   color: #F231A5;
 }
 
+.c11:focus {
+  outline: 1px dashed;
+}
+
 .c11:hover {
   background: none;
 }
@@ -69,6 +73,10 @@ exports[`<PaymentOptions /> should render the heading 1`] = `
   font-size: 1.4rem;
   padding: 0.8rem 3.2rem;
   width: 100%;
+}
+
+.c12:focus {
+  outline: 1px dashed;
 }
 
 .c12:hover {
