@@ -1,4 +1,5 @@
 import * as RibbonStyles from 'components/Ribbon/styles'
+import * as ButtonStyles from 'components/Button/styles'
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
@@ -14,6 +15,10 @@ export const Wrapper = styled.div`
       &:before {
         border-right-width: 1rem;
       }
+    }
+
+    ${ButtonStyles.Wrapper} {
+      margin-right: 1rem;
     }
 
     ${media.greaterThan('medium')`
