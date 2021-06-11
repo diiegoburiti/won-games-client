@@ -61,6 +61,10 @@ export const Wrapper = styled.button<WrapperProps>`
     cursor: pointer;
     text-decoration: none;
 
+    &:focus {
+      outline: 1px dashed;
+    }
+
     &:hover {
       background: ${minimal
         ? 'none'
