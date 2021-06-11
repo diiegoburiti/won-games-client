@@ -1,5 +1,5 @@
-import { screen } from '@testing-library/react'
-import { render } from 'utils/test-utils'
+import 'session.mock'
+import { render, screen } from 'utils/test-utils'
 
 import GameInfo from '.'
 
@@ -23,14 +23,14 @@ describe('<GameInfo />', () => {
     expect(container.firstChild).toMatchSnapshot()
   })
 
-  it('should render the buttons', () => {
+  it('should render buttons', () => {
     render(<GameInfo {...props} />)
 
     expect(
       screen.getByRole('button', { name: /add to cart/i })
     ).toBeInTheDocument()
     expect(
-      screen.getByRole('button', { name: /wishlist/i })
+      screen.getByRole('button', { name: /add to wishlist/i })
     ).toBeInTheDocument()
   })
 
