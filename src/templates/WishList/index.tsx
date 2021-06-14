@@ -1,3 +1,6 @@
+import { useWishlist } from 'hooks/use-wishlist'
+import Base from 'templates/Base'
+import Loader from 'components/Loader'
 import { Container } from 'components/Container'
 import { Divider } from 'components/Divider'
 import Empty from 'components/Empty'
@@ -6,7 +9,7 @@ import { Grid } from 'components/Grid'
 import Heading from 'components/Heading'
 import { HighlightProps } from 'components/Highlight'
 import ShowCase from 'components/ShowCase'
-import Base from 'templates/Base'
+import * as S from './styles'
 
 export type WishListTemplateProps = {
   recommendedGames: GameCardProps[]
@@ -17,37 +20,44 @@ export type WishListTemplateProps = {
 const WishList = ({
   recommendedGames,
   recommendedHighlight,
-  recommendedTitle,
-  games = []
-}: WishListTemplateProps) => (
-  <Base>
-    <Container>
-      <Heading lineColor="secondary" lineLeft>
-        WishList
-      </Heading>
+  recommendedTitle
+}: WishListTemplateProps) => {
+  const { loading, items } = useWishlist()
 
-      {games.length ? (
-        <Grid>
-          {games?.map((game, index) => (
-            <GameCard key={index} {...game} />
-          ))}
-        </Grid>
-      ) : (
-        <Empty
-          title="Your wishlist is empty"
-          description="Games added to your wishlist will appear here"
-          hasLink
-        />
-      )}
+  return (
+    <Base>
+      <Container>
+        <Heading lineLeft lineColor="secondary">
+          Wishlist
+        </Heading>
 
-      <Divider />
-    </Container>
-    <ShowCase
-      gamesCard={recommendedGames}
-      highlight={recommendedHighlight}
-      title={recommendedTitle}
-    />
-  </Base>
-)
+        {loading ? (
+          <S.Loading>
+            <Loader />
+          </S.Loading>
+        ) : items.length >= 1 ? (
+          <Grid>
+            {items?.map((game, index) => (
+              <GameCard key={`wishlist-${index}`} {...game} />
+            ))}
+          </Grid>
+        ) : (
+          <Empty
+            title="Your wishlist is empty"
+            description="Games added to your wishlist will appear here"
+            hasLink
+          />
+        )}
+        <Divider />
+      </Container>
+
+      <ShowCase
+        gamesCard={recommendedGames}
+        highlight={recommendedHighlight}
+        title={recommendedTitle}
+      />
+    </Base>
+  )
+}
 
 export default WishList
