@@ -11,7 +11,6 @@ describe('<ProfileMenu />', () => {
     expect(
       screen.getByRole('link', { name: /My profile/i })
     ).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: /My cards/i })).toBeInTheDocument()
     expect(screen.getByRole('link', { name: /My orders/i })).toBeInTheDocument()
     expect(
       screen.getByRole('button', { name: /Sign out/i })
@@ -19,7 +18,7 @@ describe('<ProfileMenu />', () => {
 
     expect(container.firstChild).toMatchSnapshot()
   })
-  it('should render the links', () => {
+  it('should render the menu with an active link defined', () => {
     render(<ProfileMenu activeLink="/profile/me" />)
 
     expect(screen.getByRole('link', { name: /My profile/i })).toHaveStyle({
