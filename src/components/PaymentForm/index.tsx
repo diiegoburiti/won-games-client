@@ -42,6 +42,7 @@ const PaymentForm = ({ session }: PaymentFormProps) => {
           setError(data.error)
           return
         }
+        setFreeGames(false)
         setClientSecret(data.client_secret)
       }
     }
