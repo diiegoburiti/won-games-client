@@ -1,6 +1,6 @@
 import { useState, useEffect, FormEvent } from 'react'
 import { Session } from 'next-auth/client'
-import { CardElement } from '@stripe/react-stripe-js'
+import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js'
 import { StripeCardElementChangeEvent } from '@stripe/stripe-js'
 import { ErrorOutline, ShoppingCart } from '@styled-icons/material-outlined'
 import { useCart } from 'hooks/use-cart'
@@ -21,8 +21,10 @@ const PaymentForm = ({ session }: PaymentFormProps) => {
   const [loading, setLoading] = useState(false)
   const [clientSecret, setClientSecret] = useState('')
   const { items } = useCart()
-  console.log(clientSecret)
+  const stripe = useStripe()
+  const elements = useElements()
 
+  console.log(clientSecret)
   useEffect(() => {
     async function setPaymentMode() {
       if (items.length) {
@@ -56,6 +58,21 @@ const PaymentForm = ({ session }: PaymentFormProps) => {
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault()
     setLoading(true)
+
+    const payload = await stripe!.confirmCardPayment(clientSecret, {
+      payment_method: {
+        card: elements!.getElement(CardElement)!
+      }
+    })
+
+    if (payload.error) {
+      setError(`Payment failed ${payload.error.message}`)
+      setLoading(false)
+      return
+    }
+
+    setError(null)
+    setLoading(false)
   }
 
   return (
