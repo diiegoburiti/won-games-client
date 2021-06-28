@@ -1,4 +1,5 @@
 import { useState, useEffect, FormEvent } from 'react'
+import { useRouter } from 'next/router'
 import { Session } from 'next-auth/client'
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js'
 import { StripeCardElementChangeEvent } from '@stripe/stripe-js'
@@ -21,10 +22,10 @@ const PaymentForm = ({ session }: PaymentFormProps) => {
   const [loading, setLoading] = useState(false)
   const [clientSecret, setClientSecret] = useState('')
   const { items } = useCart()
+  const { push } = useRouter()
   const stripe = useStripe()
   const elements = useElements()
 
-  console.log(clientSecret)
   useEffect(() => {
     async function setPaymentMode() {
       if (items.length) {
@@ -59,6 +60,11 @@ const PaymentForm = ({ session }: PaymentFormProps) => {
     event.preventDefault()
     setLoading(true)
 
+    if (freeGames) {
+      push('/success')
+      return
+    }
+
     const payload = await stripe!.confirmCardPayment(clientSecret, {
       payment_method: {
         card: elements!.getElement(CardElement)!
@@ -73,6 +79,7 @@ const PaymentForm = ({ session }: PaymentFormProps) => {
 
     setError(null)
     setLoading(false)
+    push('/success')
   }
 
   return (
