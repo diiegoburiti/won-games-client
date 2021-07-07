@@ -7,6 +7,9 @@ module.exports = withPWA({
     dest: 'public',
     disable: !isProd
   },
+  images: {
+    domains: ['localhost', 'res.cloudinary.com']
+  },
   env: {
     graphqlUrl: process.env.GRAPHQL_URL,
     publiclUrl: process.env.NEXT_PUBLIC_API_URL
