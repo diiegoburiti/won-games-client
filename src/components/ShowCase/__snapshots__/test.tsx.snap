@@ -383,9 +383,6 @@ exports[`<ShowCase /> should render ShowCase 1`] = `
 
 .c5 {
   position: relative;
-  background-image: url(/img/red-dead-img.jpg);
-  background-position: center center;
-  background-size: cover;
   height: 23rem;
   display: grid;
   grid-template-areas: 'floatimage content';
@@ -398,6 +395,11 @@ exports[`<ShowCase /> should render ShowCase 1`] = `
   width: 100%;
   height: 100%;
   background-color: rgba(0,0,0,0.6);
+}
+
+.c5 img {
+  position: absolute;
+  object-fit: cover;
 }
 
 .c5 .c6 {
@@ -516,6 +518,11 @@ exports[`<ShowCase /> should render ShowCase 1`] = `
   <section
     class="c4 c5"
   >
+    <img
+      alt="Red Dead is back background"
+      layout="fill"
+      src="/img/red-dead-img.jpg"
+    />
     <div
       class="c6 c7"
     >
