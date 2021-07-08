@@ -101,12 +101,7 @@ describe('<Game />', () => {
   it('should render the cover image', () => {
     render(<Game {...props} />)
 
-    const cover = screen.getByRole('image', { name: /cover/i })
-
-    expect(cover).toHaveStyle({
-      backgroundImage: 'url(bg-image.jpg)',
-      height: '39.5rem'
-    })
+    const cover = screen.getByRole('img', { name: /GTA V/i }).parentElement
 
     expect(cover).toHaveStyleRule('height', '70rem', {
       media: '(min-width: 768px)'
@@ -114,7 +109,7 @@ describe('<Game />', () => {
 
     expect(cover).toHaveStyleRule(
       'clip-path',
-      'polygon(0 0,100% 0,100% 100%,0 75%)',
+      'polygon(0 0,100% 0,100% 100%,0 85%)',
       {
         media: '(min-width: 768px)'
       }
