@@ -13,16 +13,13 @@ describe('<Empty />', () => {
     const { container } = render(<Empty {...props} />)
 
     expect(
-      screen.getByRole('image', {
-        name: /a gamer in a couch playing videogame/i
-      })
-    ).toBeInTheDocument()
-
-    expect(
       screen.getByRole('heading', { name: /Nothing here/ })
     ).toBeInTheDocument()
 
     expect(screen.getByText(/Nothing here/i)).toBeInTheDocument()
+    expect(
+      screen.getByAltText(/a gamer in a couch playing videogame/i)
+    ).toBeInTheDocument()
 
     expect(container.parentElement).toMatchSnapshot()
   })
