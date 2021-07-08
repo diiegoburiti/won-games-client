@@ -19,7 +19,8 @@ export const Wrapper = styled.article`
 `
 
 export const ImageBox = styled.a`
-  height: 14rem;
+  min-height: 14rem;
+  position: relative;
   width: 100%;
   background: #f6f7f8;
   background-image: linear-gradient(
@@ -31,12 +32,10 @@ export const ImageBox = styled.a`
   );
   background-size: 80rem 14rem;
   animation: placeholderShimmer 1s linear infinite forwards;
-
+  /* 
   img {
-    width: 100%;
-    height: 100%;
     object-fit: cover;
-  }
+  } */
 
   @keyframes placeholderShimmer {
     0% {
