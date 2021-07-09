@@ -1,6 +1,8 @@
 import NextNprogress from 'nextjs-progressbar'
 import Head from 'next/head'
 import { AppProps } from 'next/app'
+import { DefaultSeo } from 'next-seo'
+import SEO from '../../next-seo.config'
 
 import { Provider as AuthProvider } from 'next-auth/client'
 import { ApolloProvider } from '@apollo/client'
@@ -30,6 +32,7 @@ function App({ Component, pageProps }: AppProps) {
                   content="A simple project starter to work with TypeScript, React, NextJS and Styled Components"
                 />
               </Head>
+              <DefaultSeo {...SEO} />
               <GlobalStyles />
               <Component {...pageProps} />
               <NextNprogress
