@@ -10,6 +10,9 @@ module.exports = withPWA({
   images: {
     domains: ['localhost', 'res.cloudinary.com']
   },
+  future: {
+    webpack5: true
+  },
   env: {
     graphqlUrl: process.env.GRAPHQL_URL,
     publiclUrl: process.env.NEXT_PUBLIC_API_URL
