@@ -3,6 +3,11 @@ import NextAuth from 'next-auth'
 import Providers from 'next-auth/providers'
 import { GenericObject } from 'next-auth/_utils'
 
+type AuthorizeProps = {
+  email: string
+  password: string
+}
+
 const options = {
   pages: {
     signIn: '/sign-in'
@@ -11,7 +16,7 @@ const options = {
     Providers.Credentials({
       name: 'Sign-in',
       credentials: {},
-      async authorize({ email, password }) {
+      async authorize({ email, password }: AuthorizeProps) {
         const response = await fetch(`${process.env.publiclUrl}/auth/local`, {
           method: 'POST',
           body: new URLSearchParams({ identifier: email, password })
