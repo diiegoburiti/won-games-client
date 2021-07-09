@@ -46,6 +46,7 @@
     "next": "10.2.0",
     "next-auth": "3.19.2",
     "next-pwa": "^5.2.15",
+    "next-seo": "^4.26.0",
     "nextjs-progressbar": "^0.0.9",
     "polished": "^4.1.0",
     "react": "17.0.1",
