@@ -1,6 +1,6 @@
 {
   "name": "Won Games",
-  "short_name": "React Avançado",
+  "short_name": "Won Games",
   "icons": [
     {
       "src": "/img/icon-192.png",
@@ -14,7 +14,7 @@
     }
   ],
   "background_color": "#06092B",
-  "description": "Won Games desenvolvido utilizando Typescript, React, NextJS e Styled Components!",
+  "description": "The best game store in the world",
   "display": "fullscreen",
   "start_url": "/",
   "theme_color": "#06092B"
