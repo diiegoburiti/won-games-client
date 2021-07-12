@@ -620,11 +620,11 @@ exports[`<ShowCase /> should render ShowCase 1`] = `
                         $215.00
                       </div>
                       <button
+                        aria-label="Add To Cart"
                         class="c24"
                       >
                         <svg
                           aria-hidden="true"
-                          aria-label="Add to cart"
                           class="c25"
                           fill="currentColor"
                           focusable="false"

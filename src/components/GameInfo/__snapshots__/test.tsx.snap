@@ -260,11 +260,11 @@ exports[`<GameInfo /> should render the <GameInfo /> 1`] = `
     class="c5"
   >
     <button
+      aria-label="Add To Cart"
       class="c6 c7"
     >
       <svg
         aria-hidden="true"
-        aria-label="Add to cart"
         class="c8"
         fill="currentColor"
         focusable="false"
