@@ -15,11 +15,11 @@ const Footer = () => (
         <a href="#">loremIpsum@gmail.com</a>
       </S.Column>
 
-      <S.Column>
+      <S.Column aria-labelledby="social-media">
         <Heading color="black" size="small" lineBottom lineColor="secondary">
           Follow Us
         </Heading>
-        <nav aria-labelledby="social media">
+        <nav id="social-media">
           <a href="#" target="_blank" rel="noopeneer, noreferrer">
             Instagram
           </a>
@@ -35,12 +35,12 @@ const Footer = () => (
         </nav>
       </S.Column>
 
-      <S.Column>
+      <S.Column aria-labelledby="resources">
         <Heading color="black" lineColor="secondary" lineBottom size="small">
           Links
         </Heading>
 
-        <nav aria-labelledby="footer resources">
+        <nav id="resources">
           <Link href="/">
             <a>Home</a>
           </Link>
@@ -53,7 +53,7 @@ const Footer = () => (
         </nav>
       </S.Column>
 
-      <S.Column aria-labelledby="footer-contact">
+      <S.Column aria-label="contact">
         <Heading color="black" size="small" lineBottom lineColor="secondary">
           Location
         </Heading>
