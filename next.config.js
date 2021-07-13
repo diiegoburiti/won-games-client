@@ -11,7 +11,7 @@ module.exports = withPWA({
     domains: ['localhost', 'res.cloudinary.com']
   },
   future: {
-    webpack5: true
+    webpack5: false
   },
   env: {
     graphqlUrl: process.env.GRAPHQL_URL,
