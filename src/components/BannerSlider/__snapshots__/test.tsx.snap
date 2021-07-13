@@ -86,7 +86,18 @@ exports[`<BannerSlider /> should render with 1 active item 1`] = `
   width: 100%;
   height: 23rem;
   background-color: #EAEAEA;
-  position: relative;
+  background-image: url(https://source.unsplash.com/user/willianjusten/1042x580);
+  background-position: center center;
+  background-size: cover;
+}
+
+.c11 {
+  width: 100%;
+  height: 23rem;
+  background-color: #EAEAEA;
+  background-image: url(https://source.unsplash.com/user/willianjusten/1042x582);
+  background-position: center center;
+  background-size: cover;
 }
 
 .c7 {
@@ -293,6 +304,12 @@ exports[`<BannerSlider /> should render with 1 active item 1`] = `
 }
 
 @media (min-width:768px) {
+  .c11 {
+    height: 58rem;
+  }
+}
+
+@media (min-width:768px) {
   .c7 {
     border-radius: 0 0 0.4rem 0.4rem;
     padding: 4.0rem;
@@ -372,14 +389,11 @@ exports[`<BannerSlider /> should render with 1 active item 1`] = `
                   Bestselling
                 </div>
                 <div
+                  aria-label="Defy death 1"
                   class="c6"
-                >
-                  <img
-                    alt="Defy death 1"
-                    layout="fill"
-                    src="https://source.unsplash.com/user/willianjusten/1042x580"
-                  />
-                </div>
+                  role="img"
+                  src="https://source.unsplash.com/user/willianjusten/1042x580"
+                />
                 <div
                   class="c7"
                 >
@@ -422,14 +436,11 @@ exports[`<BannerSlider /> should render with 1 active item 1`] = `
                 class="c2 c3"
               >
                 <div
-                  class="c6"
-                >
-                  <img
-                    alt="Defy death 2"
-                    layout="fill"
-                    src="https://source.unsplash.com/user/willianjusten/1042x582"
-                  />
-                </div>
+                  aria-label="Defy death 2"
+                  class="c11"
+                  role="img"
+                  src="https://source.unsplash.com/user/willianjusten/1042x582"
+                />
                 <div
                   class="c7"
                 >

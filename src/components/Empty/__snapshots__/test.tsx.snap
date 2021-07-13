@@ -16,16 +16,16 @@ exports[`<Empty /> should render correctly 1`] = `
   text-align: center;
 }
 
-.c0 img {
-  object-fit: cover;
+.c1 {
+  max-width: 100%;
 }
 
-.c1 {
+.c2 {
   color: #F231A5;
   font-size: 2.8rem;
 }
 
-.c2 {
+.c3 {
   color: #FAFAFA;
   font-size: 1.8rem;
   font-weight: 300;
@@ -39,18 +39,17 @@ exports[`<Empty /> should render correctly 1`] = `
     >
       <img
         alt="a gamer in a couch playing videogame"
-        height="285"
+        class="c1"
         role="image"
         src="/img/empty.svg"
-        width="380"
       />
       <h2
-        class="c1"
+        class="c2"
       >
         Nothing here
       </h2>
       <p
-        class="c2"
+        class="c3"
       >
         Some text here
       </p>
