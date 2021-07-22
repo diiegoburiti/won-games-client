@@ -511,6 +511,7 @@ exports[`<ShowCase /> should render ShowCase 1`] = `
 
 <section
   class="c0 c1"
+  data-cy="Most Popular"
 >
   <h2
     class="c2 c3"
