@@ -26,5 +26,27 @@
 
 // Add Testing Library Commands
 import '@testing-library/cypress/add-commands';
+import cypress = require('cypress');
 
 Cypress.Commands.add('google', () => cy.visit('https://google.com'))
+
+Cypress.Commands.add('shouldRenderBanner', () => {
+  cy.get('.slick-slider').within(() => {
+    cy.findAllByText(/kingdom come/i )
+    cy.findAllByText(/buy now/i)
+
+
+
+    cy.get('.slick-dots > :nth-child(2) > button').click()
+    cy.wait(500)
+
+    cy.findAllByText(/Cyberpunk 2077/i)
+    cy.findAllByText(/buy now/i)
+
+    cy.get('.slick-dots > :nth-child(3) > button').click()
+    cy.wait(500)
+
+    cy.findAllByText(/Dead Cells/i )
+    cy.findAllByText(/buy now/i)
+  })
+})
