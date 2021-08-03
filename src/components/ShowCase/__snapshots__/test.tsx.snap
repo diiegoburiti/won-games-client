@@ -521,6 +521,7 @@ exports[`<ShowCase /> should render ShowCase 1`] = `
   </h2>
   <section
     class="c4 c5"
+    data-cy="highlight"
   >
     <div
       class="c6 c7"
