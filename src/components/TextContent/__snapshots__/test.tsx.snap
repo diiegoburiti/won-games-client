@@ -73,6 +73,7 @@ exports[`<TextContent /> should render the title and content 1`] = `
 
 <div
   class="c0"
+  data-cy="content"
 >
   <h2
     class="c1"
