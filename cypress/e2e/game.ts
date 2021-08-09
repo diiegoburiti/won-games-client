@@ -34,6 +34,6 @@ describe('Game Page', () => {
     })
 
       cy.shouldRenderShowcase({name: 'Upcoming Games', highlight: true})
-      cy.shouldRenderShowcase({name: 'Recommended Games', highlight: true})
+      cy.shouldRenderShowcase({name: 'Recommended Games', highlight: false})
   })
 })
