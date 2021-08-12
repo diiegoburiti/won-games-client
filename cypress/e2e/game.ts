@@ -1,9 +1,10 @@
 /// <reference path="../support/index.d.ts" />
 
 describe('Game Page', () => {
-  it('should render game page sections', () => {
+  before(() => {
     cy.visit('/game/cyberpunk-2077')
-
+  })
+  it('should render game page sections', () => {
     cy.getByDataCy('game-info').within(() => {
       cy.findByRole('heading', { name: /Cyberpunk 2077/i }).should('exist')
       cy.findByText(/Cyberpunk 2077 is an open-world/i).should('exist')
@@ -35,5 +36,17 @@ describe('Game Page', () => {
 
       cy.shouldRenderShowcase({name: 'Upcoming Games', highlight: true})
       cy.shouldRenderShowcase({name: 'Recommended Games', highlight: false})
+  })
+
+  it('should add game in cart', () => {
+    cy.getByDataCy('game-info').within(() => {
+      cy.findByRole('button', { name: /add to cart/i }).click()
+      cy.findByRole('button', { name: /remove from cart/i }).should('exist')
+    })
+    cy.findAllByLabelText(/cart items/i).first().should('have.length', 1).click()
+
+    cy.getByDataCy('cart-list').within(() => {
+      cy.findByRole('heading', {name: /Cyberpunk 2077/i}).should('exist')
+    })
   })
 })
