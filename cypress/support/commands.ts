@@ -27,6 +27,7 @@
 // Add Testing Library Commands
 import '@testing-library/cypress/add-commands';
 import cypress = require('cypress');
+import { genreFields, platformFields, priceFields, sortFields } from '../../src/utils/filter/fields';
 
 Cypress.Commands.add('google', () => cy.visit('https://google.com'))
 
@@ -65,5 +66,11 @@ Cypress.Commands.add('shouldRenderShowcase', ({name, highlight = false}) => {
         cy.findByRole('link').should('have.attr', 'href')
       })
     }
+  })
+})
+
+Cypress.Commands.add('getFields', (fields) => {
+  fields.map(({label}) => {
+    cy.findAllByText(label).should('exist')
   })
 })
