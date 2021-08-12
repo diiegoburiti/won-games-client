@@ -38,15 +38,19 @@ describe('Game Page', () => {
       cy.shouldRenderShowcase({name: 'Recommended Games', highlight: false})
   })
 
-  it('should add game in cart', () => {
+  it('should add/remove game in cart', () => {
     cy.getByDataCy('game-info').within(() => {
       cy.findByRole('button', { name: /add to cart/i }).click()
       cy.findByRole('button', { name: /remove from cart/i }).should('exist')
     })
-    cy.findAllByLabelText(/cart items/i).first().should('have.length', 1).click()
+    cy.findAllByLabelText(/cart items/i).first().contains(1).click()
 
     cy.getByDataCy('cart-list').within(() => {
       cy.findByRole('heading', {name: /Cyberpunk 2077/i}).should('exist')
+      cy.findByRole('button', {name: /remove/i}).should('exist').click()
+      cy.findByRole('heading', {name: /Cyberpunk 2077/i}).should('not.exist')
+      cy.findByRole('heading', {name: /your cart is empty/i}).should('exist')
+
     })
   })
 })
