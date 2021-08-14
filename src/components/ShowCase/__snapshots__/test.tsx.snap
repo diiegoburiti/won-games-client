@@ -574,6 +574,7 @@ exports[`<ShowCase /> should render ShowCase 1`] = `
               <div>
                 <article
                   class="c14"
+                  data-cy="game-card"
                 >
                   <a
                     class="c15"
