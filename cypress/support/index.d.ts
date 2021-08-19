@@ -57,16 +57,22 @@ declare namespace Cypress {
     shouldBeLessThan(value: number): Chainable<Element>
 
     /**
-     * Custom command to check if value is greater than
-     * @example cy.shouldBeGreaterThan(100)
-     */
+    * Custom command to check if value is greater than
+    * @example cy.shouldBeGreaterThan(100)
+    */
     shouldBeGreaterThan(value: number): Chainable<Element>
 
     /**
-       * Custom command to sign up
-       * @example cy.signUp(user)
-       */
+    * Custom command to sign up
+    * @example cy.signUp(user)
+    */
     signUp(user: User): Chainable<Element>
+
+    /**
+    * Custom command to sign up
+    * @example cy.signIn()
+    */
+     signIn(email?: string, password?: string): Chainable<Element>
 
   }
 }
