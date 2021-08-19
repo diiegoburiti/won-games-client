@@ -26,4 +26,15 @@ describe('User', () => {
     cy.findByRole('link', { name: /sign in/i }).should('exist')
     cy.findByText(/cypress/i).should('not.exist')
   }) 
+
+  it('should sign the user and redirect to the page that it was defined previously ' , () => {
+    cy.visit('/profile/me')
+
+    cy.signIn()
+
+    cy.location('href').should('eq', `${Cypress.config().baseUrl}/profile/me`)
+
+    cy.findByLabelText(/username/i).should('have.value', 'cypress')
+    cy.findByLabelText(/e-mail/i).should('have.value', 'e2e@wongames.com')
+  }) 
 })
